@@ -120,8 +120,8 @@ export default function RootLayout({
       <body className="antialiased" suppressHydrationWarning>
         <LaunchPreloader />
         {children}
+        <GoogleAnalytics gaId="G-LB6GXR1EZM" />
       </body>
-      <GoogleAnalytics gaId="G-LB6GXR1EZM" />
     </html>
   );
 }
