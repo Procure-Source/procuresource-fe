@@ -2,14 +2,33 @@ import { certificateRecords, statusLabel, type CertificateRecord } from "@/lib/v
 
 export type WhatsAppWorkflowAction = "introduction" | "snapshot" | "spares" | "expert";
 
-export const expertSession = null;
+export const expertSession = {
+  title: "Ask an MEP Compliance Expert",
+  cadence: "Weekly, 30 minutes",
+  nextSessionOn: "2026-07-14",
+  timeZone: "Asia/Dubai",
+  topic: "Chiller substitutions, AHRI evidence, UAE agent authorization, and lead-time risk",
+  host: "ProcureSource Verification Desk",
+  archiveNote:
+    "Questions and answers become searchable reference notes after each session so the trust layer compounds over time.",
+};
 
-export const tradeCreditPartners: Array<{
-  name: string;
-  region: string;
-  status: string;
-  summary: string;
-}> = [];
+export const tradeCreditPartners = [
+  {
+    name: "Trade finance referral",
+    region: "UAE / GCC",
+    status: "Partner-ready placeholder",
+    summary:
+      "Suppliers can indicate whether financed POs are accepted through an approved trade-credit partner.",
+  },
+  {
+    name: "Milestone-payment review",
+    region: "Project dependent",
+    status: "Manual referral",
+    summary:
+      "ProcureSource can attach verified supplier, certificate, and lead-time evidence to a financing referral packet.",
+  },
+];
 
 const arabicStatus: Record<CertificateRecord["status"], string> = {
   verified: "تم التحقق",

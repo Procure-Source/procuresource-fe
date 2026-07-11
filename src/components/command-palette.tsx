@@ -15,12 +15,12 @@ interface SearchResult {
 
 const quickLinks: SearchResult[] = [
   { id: 'home', name: 'Home', slug: '', type: 'page', description: 'Go to homepage', href: '/' },
-  { id: 'product', name: 'RFQ tool', slug: 'product', type: 'page', description: 'Open the RFQ tool', href: '/product' },
-  { id: 'flows', name: 'Screen flow map', slug: 'flows', type: 'page', description: 'View purchaser, supplier, and verification journeys', href: '/flows' },
-  { id: 'purchasers', name: 'Purchasers', slug: 'purchasers', type: 'page', description: 'Open purchaser information', href: '/purchasers' },
-  { id: 'suppliers', name: 'Suppliers', slug: 'suppliers', type: 'page', description: 'Open supplier information', href: '/suppliers' },
-  { id: 'news', name: 'News', slug: 'news', type: 'page', description: 'Read market notes', href: '/news' },
-  { id: 'advertise', name: 'Advertise', slug: 'advertise', type: 'page', description: 'View advertising options', href: '/advertise' },
+  { id: 'products', name: 'Products', slug: 'products', type: 'page', description: 'Browse all products', href: '/products' },
+  { id: 'manufacturers', name: 'Manufacturers', slug: 'manufacturers', type: 'page', description: 'View all brands', href: '/manufacturers' },
+  { id: 'suppliers', name: 'Suppliers', slug: 'agents', type: 'page', description: 'Find local suppliers', href: '/agents' },
+  { id: 'spec-matcher', name: 'AI Spec Matcher', slug: 'spec-matcher', type: 'page', description: 'Match specs to products', href: '/spec-matcher' },
+  { id: 'search', name: 'Search', slug: 'search', type: 'page', description: 'Full search page', href: '/search' },
+  { id: 'advertise', name: 'Advertise', slug: 'advertise', type: 'page', description: 'Advertising options', href: '/advertise' },
 ];
 
 export default function CommandPalette() {
@@ -181,7 +181,7 @@ export default function CommandPalette() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Search pages or type a command..."
+            placeholder="Search products, brands, or type a command..."
             className="flex-1 h-14 border-0 bg-transparent text-[16px] placeholder:text-[#86868b] focus:outline-none"
             autoFocus
           />

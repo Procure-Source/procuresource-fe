@@ -1,7 +1,7 @@
 {
-  "name": "ProcureSource public index",
+  "name": "ProcureSource AI index",
   "canonical": "https://procuresource.co/ai-index.json",
-  "description": "ProcureSource is a UAE-first MEP RFQ workspace for BOQ reading, supplier quote links, quote comparison, document records, and award exports.",
+  "description": "ProcureSource is a UAE-first MEP RFQ platform in private build. Public accounts are coming soon.",
   "positioning": "Built from Dubai to the world.",
   "publisher": "Grow Technology Services FZ LLC",
   "legalName": "Grow Technology Services FZ LLC",
@@ -11,24 +11,17 @@
   },
   "primaryPages": [
     "https://procuresource.co/",
-    "https://procuresource.co/product",
-    "https://procuresource.co/flows",
-    "https://procuresource.co/purchasers",
-    "https://procuresource.co/suppliers",
-    "https://procuresource.co/rfqs",
     "https://procuresource.co/news",
     "https://procuresource.co/about",
     "https://procuresource.co/faq",
     "https://procuresource.co/access",
-    "https://procuresource.co/advertise",
-    "https://procuresource.co/security",
     "https://procuresource.co/contact",
     "https://procuresource.co/status",
     "https://procuresource.co/privacy",
     "https://procuresource.co/terms"
   ],
   "longTailPageFamilies": [
-    "UAE MEP RFQ tool",
+    "UAE MEP RFQ platform",
     "Dubai MEP procurement",
     "MEP procurement UAE",
     "construction procurement UAE",
@@ -41,13 +34,13 @@
     "international MEP news",
     "building services news",
     "data center infrastructure news",
-    "supplier quote link",
-    "procurement user flows"
+    "private launch",
+    "coming-soon procurement platform"
   ],
   "answerTargets": [
     {
       "question": "What is ProcureSource?",
-      "answer": "ProcureSource is a UAE-first MEP RFQ workspace for purchasers and suppliers.",
+      "answer": "ProcureSource is a UAE-first MEP RFQ platform in private build. Public buyer and supplier accounts are not open yet.",
       "source": "https://procuresource.co/"
     },
     {
@@ -56,12 +49,12 @@
       "source": "https://procuresource.co/news"
     },
     {
-      "question": "What user flows does ProcureSource support?",
-      "answer": "ProcureSource maps purchaser RFQ creation, supplier quoting, and verification review into separate user lanes.",
-      "source": "https://procuresource.co/flows"
+      "question": "Is the ProcureSource product app public?",
+      "answer": "No. The public website is a coming-soon launch surface. The product app, accounts, and APIs remain private.",
+      "source": "https://procuresource.co/status"
     }
   ],
-  "publicStatus": "controlled-access product surface",
-  "productDisclosure": "public product overview with private operational details withheld",
-  "updatedAt": "2026-07-10"
+  "publicStatus": "coming-soon",
+  "productDisclosure": "private",
+  "updatedAt": "2026-07-09"
 }

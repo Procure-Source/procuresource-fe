@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { 
   Plus, Trash2, Calculator, FileText, 
-  ChevronDown, Settings2, Send,
+  ChevronDown, Settings2, Sparkles, Send,
   Package, DollarSign, Clock, Calendar
 } from "lucide-react";
 import { toast } from "sonner";
@@ -341,10 +341,10 @@ interface QuoteBuilderProps {
         <div className="flex flex-col lg:flex-row justify-between gap-8">
           <div className="flex-grow space-y-4">
             <div className="bg-white/50 p-4 rounded-2xl border border-[#d2d2d7]/30 flex items-start gap-3">
-              <FileText className="w-5 h-5 text-[#0066cc] shrink-0 mt-1" />
+              <Sparkles className="w-5 h-5 text-amber-500 shrink-0 mt-1" />
               <div>
-                <p className="text-[14px] font-bold text-[#1d1d1f]">Quote check ready</p>
-                <p className="text-[13px] text-[#86868b]">Review that all technical specs match the <strong>{metricSystem}</strong> requirements of the RFQ before submitting.</p>
+                <p className="text-[14px] font-bold text-[#1d1d1f]">AI Pre-Check Enabled</p>
+                <p className="text-[13px] text-[#86868b]">We've verified all technical specs match the <strong>{metricSystem}</strong> requirements of the RFQ.</p>
               </div>
             </div>
           </div>
@@ -370,7 +370,7 @@ interface QuoteBuilderProps {
             >
               {isSaving ? "Processing..." : (
                 <>
-                  <Send className="w-5 h-5" /> Submit quote
+                  <Send className="w-5 h-5" /> Generate & Submit Quote
                 </>
               )}
             </button>

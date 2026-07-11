@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+import { LaunchPreloader } from "@/components/launch/launch-preloader";
 import StructuredData from "@/components/seo/structured-data";
 import { GoogleAnalytics } from '@next/third-parties/google';
 
 
 export const metadata: Metadata = {
   title: {
-    default: "ProcureSource - UAE MEP RFQ Workspace",
+    default: "ProcureSource - UAE MEP RFQ Platform Coming Soon",
     template: "%s | ProcureSource",
   },
-  description: "ProcureSource is a UAE-first MEP RFQ workspace for BOQ upload, supplier quote links, quote comparison, and award export.",
+  description: "ProcureSource is a UAE-first MEP RFQ platform in private build. Public accounts are coming soon.",
   keywords: [
     "ProcureSource",
     "UAE MEP RFQ",
@@ -28,16 +29,15 @@ export const metadata: Metadata = {
     "Dubai to the world procurement",
     "Grow Technology Services FZ LLC",
     "MEP tendering",
-    "BOQ reading",
-    "supplier quote links",
-    "quote comparison",
+    "coming soon",
+    "private build",
     "Dubai",
   ],
   authors: [{ name: "Grow Technology Services FZ LLC" }],
   creator: "Grow Technology Services FZ LLC",
   publisher: "Grow Technology Services FZ LLC",
   applicationName: "ProcureSource",
-  category: "Procurement software",
+  category: "Private launch",
   manifest: "/manifest.webmanifest",
   formatDetection: {
     email: false,
@@ -53,8 +53,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "ProcureSource - UAE MEP RFQ Workspace",
-    description: "A UAE-first MEP RFQ workspace for contractors, consultants, suppliers, and project procurement teams.",
+    title: "ProcureSource - UAE MEP RFQ Platform Coming Soon",
+    description: "A private UAE-first MEP RFQ platform for contractors, consultants, and project procurement teams.",
     url: "https://procuresource.co",
     siteName: "ProcureSource",
     locale: "en_US",
@@ -65,14 +65,14 @@ export const metadata: Metadata = {
         url: "/procuresource-og.png",
         width: 1200,
         height: 630,
-        alt: "ProcureSource UAE MEP RFQ workspace",
+        alt: "ProcureSource UAE MEP RFQ platform coming soon",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ProcureSource - UAE MEP RFQ Workspace",
-    description: "A UAE-first MEP RFQ workspace for project procurement teams.",
+    title: "ProcureSource - UAE MEP RFQ Platform Coming Soon",
+    description: "A private UAE-first MEP RFQ platform for project procurement teams.",
     images: ["/procuresource-og.png"],
   },
   icons: {
@@ -100,7 +100,6 @@ export const metadata: Metadata = {
     },
   },
   other: {
-    "google-site-verification": "googleedab61857739b0a0",
     "geo.region": "AE-DU",
     "geo.placename": "Dubai",
     "geo.position": "25.2048;55.2708",
@@ -114,11 +113,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en">
       <head>
         <StructuredData />
       </head>
       <body className="antialiased" suppressHydrationWarning>
+        <LaunchPreloader />
         {children}
       </body>
       <GoogleAnalytics gaId="G-LB6GXR1EZM" />

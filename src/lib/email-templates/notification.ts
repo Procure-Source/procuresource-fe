@@ -25,7 +25,7 @@ export function getNotificationEmailTemplate(
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${title}</title>
 </head>
-<body style="margin:0;padding:0;background-color:#f5f5f7;font-family:'DM Sans','Manrope';">
+<body style="margin:0;padding:0;background-color:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#f5f5f7;padding:40px 0;">
     <tr>
       <td align="center">

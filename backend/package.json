@@ -2,7 +2,7 @@
   "name": "procuresource-backend",
   "version": "0.1.0",
   "private": true,
-  "description": "Optional ProcureSource backend surface for health checks and RFQ utility APIs.",
+  "description": "Dormant ProcureSource backend surface for launch infrastructure checks.",
   "type": "module",
   "engines": {
     "node": ">=20"

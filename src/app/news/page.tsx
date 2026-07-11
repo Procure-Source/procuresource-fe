@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
+import { LaunchFooter } from "@/components/launch/launch-footer";
+import { LaunchNav } from "@/components/launch/launch-nav";
 import { NewsletterSignup } from "@/components/launch/newsletter-signup";
-import { ProductShell } from "@/components/product/product-shell";
 import { mepNewsItems, mepNewsUpdatedAt, type MepNewsItem } from "@/lib/mep-news";
 
 export const metadata: Metadata = {
@@ -226,125 +227,127 @@ export default function NewsPage() {
     .slice(0, 4);
 
   return (
-    <ProductShell>
-      <main className="stand-site stand-inner-site">
-        <section className="news-app" aria-labelledby="news-title">
-          <div className="stand-grain" aria-hidden="true" />
-          <div className="news-app-top">
-            <p>/News</p>
-            <h1 id="news-title">MEP, utilities, policy.</h1>
-            <span>
-              A public board for UAE, Dubai, GCC, and connected international signals. Refreshed{" "}
-              {formatDate(mepNewsUpdatedAt)} from public sources.
-            </span>
-          </div>
+    <main className="stand-site stand-inner-site">
+      <LaunchNav />
 
-          <nav className="news-filter-bar" aria-label="News filters">
-            {filterRules.map((rule) => (
-              <a key={rule.label} href={rule.href}>
-                <span>{rule.label}</span>
-                <b>
-                  {rule.label === "Policy / Law"
-                    ? policyWatchItems.length
-                    : rule.label === "International"
-                      ? mepNewsItems.filter((item) => item.region === "International").length
-                      : countByNeedles(rule.needles)}
-                </b>
-              </a>
-            ))}
-          </nav>
+      <section className="news-app" aria-labelledby="news-title">
+        <div className="stand-grain" aria-hidden="true" />
+        <div className="news-app-top">
+          <p>/News</p>
+          <h1 id="news-title">MEP, utilities, policy.</h1>
+          <span>
+            A public board for UAE, Dubai, GCC, and connected international signals. Refreshed{" "}
+            {formatDate(mepNewsUpdatedAt)} from public sources.
+          </span>
+        </div>
 
-          <div id="latest" className="news-card-grid" aria-label="Latest MEP news">
-            {latest.map((item) => (
-              <NewsBox key={item.href} item={item} />
-            ))}
-          </div>
-        </section>
+        <nav className="news-filter-bar" aria-label="News filters">
+          {filterRules.map((rule) => (
+            <a key={rule.label} href={rule.href}>
+              <span>{rule.label}</span>
+              <b>
+                {rule.label === "Policy / Law"
+                  ? policyWatchItems.length
+                  : rule.label === "International"
+                    ? mepNewsItems.filter((item) => item.region === "International").length
+                    : countByNeedles(rule.needles)}
+              </b>
+            </a>
+          ))}
+        </nav>
 
-        <section id="policy-law" className="news-app-section" aria-labelledby="policy-title">
+        <div id="latest" className="news-card-grid" aria-label="Latest MEP news">
+          {latest.map((item) => (
+            <NewsBox key={item.href} item={item} />
+          ))}
+        </div>
+      </section>
+
+      <section id="policy-law" className="news-app-section" aria-labelledby="policy-title">
+        <div className="news-section-title">
+          <p>Policy / Law</p>
+          <h2 id="policy-title">Official references to keep watching.</h2>
+          <span>
+            These boxes are not legal advice. They are the public references a
+            UAE MEP team should keep close when requirements move.
+          </span>
+        </div>
+        <div className="news-card-grid news-card-grid--compact">
+          {policyWatchItems.map((item) => (
+            <PolicyBox key={item.href} item={item} />
+          ))}
+        </div>
+      </section>
+
+      <section id="gcc" className="news-app-section news-app-section--split" aria-label="Regional news filters">
+        <div id="dubai">
           <div className="news-section-title">
-            <p>Policy / Law</p>
-            <h2 id="policy-title">Official references to keep watching.</h2>
-            <span>
-              These boxes are not legal advice. They are the public references a
-              UAE MEP team should keep close when requirements move.
-            </span>
+            <p>Dubai</p>
+            <h2>Dubai and authority signals.</h2>
+          </div>
+          <div className="news-stack">
+            {dubaiItems.map((item) => (
+              <NewsBox key={`dubai-${item.href}`} item={item} />
+            ))}
+          </div>
+        </div>
+
+        <div id="uae">
+          <div className="news-section-title">
+            <p>UAE</p>
+            <h2>UAE market movement.</h2>
+          </div>
+          <div className="news-stack">
+            {uaeItems.map((item) => (
+              <NewsBox key={`uae-${item.href}`} item={item} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" className="news-app-section" aria-labelledby="projects-title">
+        <div className="news-section-title">
+          <p>Projects</p>
+          <h2 id="projects-title">Contracts, infrastructure, and demand signals.</h2>
+        </div>
+        <div className="news-card-grid news-card-grid--compact">
+          {projectItems.map((item) => (
+            <NewsBox key={`project-${item.href}`} item={item} />
+          ))}
+        </div>
+      </section>
+
+      <section id="utilities" className="news-app-section" aria-labelledby="utilities-title">
+        <div className="news-section-title">
+          <p>Utilities</p>
+          <h2 id="utilities-title">Power, water, waste, and energy notes.</h2>
+        </div>
+        <div className="news-card-grid news-card-grid--compact">
+          {utilityItems.map((item) => (
+            <NewsBox key={`utility-${item.href}`} item={item} />
+          ))}
+        </div>
+      </section>
+
+      <section id="newsletter" className="news-app-section news-newsletter-section" aria-label="Newsletter signup">
+        <NewsletterSignup />
+      </section>
+
+      {more.length > 0 ? (
+        <section id="international" className="news-app-section" aria-labelledby="more-title">
+          <div className="news-section-title">
+            <p>More</p>
+            <h2 id="more-title">More GCC, regional, and international notes.</h2>
           </div>
           <div className="news-card-grid news-card-grid--compact">
-            {policyWatchItems.map((item) => (
-              <PolicyBox key={item.href} item={item} />
+            {more.map((item) => (
+              <NewsBox key={`more-${item.href}`} item={item} />
             ))}
           </div>
         </section>
+      ) : null}
 
-        <section id="gcc" className="news-app-section news-app-section--split" aria-label="Regional news filters">
-          <div id="dubai">
-            <div className="news-section-title">
-              <p>Dubai</p>
-              <h2>Dubai and authority signals.</h2>
-            </div>
-            <div className="news-stack">
-              {dubaiItems.map((item) => (
-                <NewsBox key={`dubai-${item.href}`} item={item} />
-              ))}
-            </div>
-          </div>
-
-          <div id="uae">
-            <div className="news-section-title">
-              <p>UAE</p>
-              <h2>UAE market movement.</h2>
-            </div>
-            <div className="news-stack">
-              {uaeItems.map((item) => (
-                <NewsBox key={`uae-${item.href}`} item={item} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="projects" className="news-app-section" aria-labelledby="projects-title">
-          <div className="news-section-title">
-            <p>Projects</p>
-            <h2 id="projects-title">Contracts, infrastructure, and demand signals.</h2>
-          </div>
-          <div className="news-card-grid news-card-grid--compact">
-            {projectItems.map((item) => (
-              <NewsBox key={`project-${item.href}`} item={item} />
-            ))}
-          </div>
-        </section>
-
-        <section id="utilities" className="news-app-section" aria-labelledby="utilities-title">
-          <div className="news-section-title">
-            <p>Utilities</p>
-            <h2 id="utilities-title">Power, water, waste, and energy notes.</h2>
-          </div>
-          <div className="news-card-grid news-card-grid--compact">
-            {utilityItems.map((item) => (
-              <NewsBox key={`utility-${item.href}`} item={item} />
-            ))}
-          </div>
-        </section>
-
-        <section id="newsletter" className="news-app-section news-newsletter-section" aria-label="Newsletter signup">
-          <NewsletterSignup />
-        </section>
-
-        {more.length > 0 ? (
-          <section id="international" className="news-app-section" aria-labelledby="more-title">
-            <div className="news-section-title">
-              <p>More</p>
-              <h2 id="more-title">More GCC, regional, and international notes.</h2>
-            </div>
-            <div className="news-card-grid news-card-grid--compact">
-              {more.map((item) => (
-                <NewsBox key={`more-${item.href}`} item={item} />
-              ))}
-            </div>
-          </section>
-        ) : null}
-      </main>
-    </ProductShell>
+      <LaunchFooter />
+    </main>
   );
 }

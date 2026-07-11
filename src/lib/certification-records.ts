@@ -185,8 +185,8 @@ export async function findCertificateRecord(query: string): Promise<CertificateR
       return mapDatabaseRecord(dbRecord);
     }
   } catch (error) {
-    if (!(error instanceof Error && /COSMOS_MONGODB_URI|MONGODB_URI/.test(error.message))) {
-      console.warn("Verification database lookup unavailable:", error);
+    if (!(error instanceof Error && error.message === "MONGODB_URI is not configured")) {
+      console.warn("Verification DB lookup unavailable, using local verification records:", error);
     }
   }
 

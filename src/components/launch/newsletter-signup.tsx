@@ -18,6 +18,7 @@ export function NewsletterSignup() {
   const [region, setRegion] = useState(regionOptions[0]);
   const [status, setStatus] = useState<"idle" | "ready">("idle");
   const [error, setError] = useState("");
+  const formState = error ? "error" : status;
 
   const mailtoHref = useMemo(() => {
     const subject = "ProcureSource weekly MEP newsletter";
@@ -47,7 +48,7 @@ export function NewsletterSignup() {
   }
 
   return (
-    <form className="news-newsletter-card" onSubmit={handleSubmit}>
+    <form className="news-newsletter-card" onSubmit={handleSubmit} noValidate>
       <div>
         <p>Weekly brief</p>
         <h2>Get the MEP procurement watchlist.</h2>
@@ -62,9 +63,16 @@ export function NewsletterSignup() {
         <input
           type="email"
           value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          onChange={(event) => {
+            setEmail(event.target.value);
+            if (error) {
+              setError("");
+            }
+          }}
           placeholder="name@company.com"
           autoComplete="email"
+          aria-invalid={Boolean(error)}
+          aria-describedby="newsletter-signup-status"
           required
         />
       </label>
@@ -80,7 +88,7 @@ export function NewsletterSignup() {
 
       <button type="submit">Prepare signup</button>
 
-      <p className="news-newsletter-status" aria-live="polite">
+      <p id="newsletter-signup-status" className="news-newsletter-status" data-state={formState} aria-live="polite">
         {error}
         {status === "ready" && !error ? (
           <>

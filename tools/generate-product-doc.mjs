@@ -119,10 +119,10 @@ const pages = [
       <tr><td>Frontend</td><td>Next.js 15 App Router, React 19, Tailwind CSS 4, Framer Motion, Lucide icons, local DM Sans and Manrope fonts.</td></tr>
       <tr><td>Backend</td><td>Next.js API routes under src/app/api with MongoDB/Mongoose models, JWT auth cookies, Cloudinary uploads, Nodemailer email flows.</td></tr>
       <tr><td>Data Models</td><td>User, Supplier, SupplierProduct, Brand, Product, RFQ, Quote, Contract, Delivery, Project, ProjectSpecMatch, Message, Notification, ConnectionRequest, UserDocument and VerificationRecord.</td></tr>
-      <tr><td>Document Intelligence</td><td>Server-side parsing is wired through provider-neutral secret stores, JSON normalization, and deterministic local fallback.</td></tr>
+      <tr><td>AI Provider</td><td>Azure OpenAI-compatible inference is wired through src/lib/ai.ts with API key or Azure AD token fallback, JSON parsing and deterministic local fallback.</td></tr>
       <tr><td>SEO/GEO</td><td>Root metadata, canonical rules, robots.txt, sitemap.xml, PWA manifest, structured JSON-LD, GCC market pages and global landing pages.</td></tr>
     </table>
-    <div class="section"><span class="pill">Next.js 15</span><span class="pill">MongoDB</span><span class="pill">Server-side parsing</span><span class="pill">DM Sans</span><span class="pill">Manrope</span><span class="pill">ProcureSource</span></div>
+    <div class="section"><span class="pill">Next.js 15</span><span class="pill">MongoDB</span><span class="pill">Azure OpenAI-compatible</span><span class="pill">DM Sans</span><span class="pill">Manrope</span><span class="pill">ProcureSource</span></div>
     <div class="footer"><span>Architecture</span><span>04</span></div>
   </section>`,
   `
@@ -133,9 +133,9 @@ const pages = [
       <div class="card"><h3>Verification Trail</h3><p>Certificate records now support verified-on dates, next review dates, evidence methods, outcomes and sources.</p></div>
       <div class="card"><h3>Mismatch Alerts</h3><p>Lookup can show not-found or mismatch states instead of falsely displaying a generic verified badge.</p></div>
       <div class="card"><h3>Agent Authorization Map</h3><p>Records include agent name, region, status, confirmation method, response-time history and introduction contact path.</p></div>
-      <div class="card"><h3>Lead Time Reality Check</h3><p>Records distinguish claimed lead time from observed project delivery data when verified delivery observations exist.</p></div>
+      <div class="card"><h3>Lead Time Reality Check</h3><p>Records distinguish claimed lead time from observed project delivery data when samples exist.</p></div>
       <div class="card"><h3>Spec Confidence</h3><p>Spec matcher now returns requirement-level status, confidence and evidence, plus region-aware flags.</p></div>
-      <div class="card"><h3>Data Model</h3><p>VerificationRecord model added for real Mongo-backed trust data. Empty states are shown until verified records are connected.</p></div>
+      <div class="card"><h3>Data Model</h3><p>VerificationRecord model added for real Mongo-backed trust data, with local seeded examples as fallback.</p></div>
     </div>
     <div class="footer"><span>Verification Core</span><span>05</span></div>
   </section>`,
@@ -173,7 +173,7 @@ const pages = [
     <div class="label">Next Actions</div>
     <h2>Recommended Roadmap</h2>
     <div class="grid">
-      <div class="card"><h3>Phase 0</h3><p>Lock v1 to UAE chillers, build the manufacturer, agent, and certificate registry, and import only verified manual evidence.</p></div>
+      <div class="card"><h3>Phase 0</h3><p>Lock v1 to UAE chillers, build the manufacturer/agent/certificate spreadsheet, and seed VerificationRecord with real manual evidence.</p></div>
       <div class="card"><h3>Phase 1</h3><p>Expose the public certification lookup and verified agent introduction flow to a small group of real consultants.</p></div>
       <div class="card"><h3>Phase 2</h3><p>Only after real usage, expand admin tooling for manufacturer self-updates, verification review queues and quarterly re-check cadence.</p></div>
       <div class="card"><h3>Do Not Rush</h3><p>Do not expand categories, payment workflows, complex RFQ automation, BIM integration or mobile apps before the trust dataset has density.</p></div>

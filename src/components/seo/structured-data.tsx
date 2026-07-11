@@ -19,7 +19,7 @@ const structuredData = {
       url: baseUrl,
       email: "hello@procuresource.co",
       slogan: "Built from Dubai to the world.",
-      description: "ProcureSource is a UAE-first MEP RFQ workspace for BOQ upload, supplier quote links, quote comparison, and award export.",
+      description: "ProcureSource is a UAE-first MEP RFQ platform in private build.",
       logo: `${baseUrl}/procuresource-logo.svg`,
       foundingLocation: {
         "@type": "Place",
@@ -56,7 +56,7 @@ const structuredData = {
       "@id": `${baseUrl}/#website`,
       url: baseUrl,
       name: "ProcureSource",
-      description: "ProcureSource is a UAE MEP RFQ workspace for purchasers and suppliers.",
+      description: "ProcureSource is a UAE MEP RFQ platform in private build, with public accounts coming soon.",
       publisher: {
         "@id": `${baseUrl}/#organization`,
       },
@@ -105,8 +105,8 @@ const structuredData = {
         {
           "@type": "ListItem",
           position: 2,
-          name: "RFQ workspace",
-          item: `${baseUrl}/product`,
+          name: "Coming Soon",
+          item: baseUrl,
         },
       ],
     },

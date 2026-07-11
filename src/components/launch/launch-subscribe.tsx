@@ -20,6 +20,7 @@ export function LaunchSubscribe({ compact = false }: LaunchSubscribeProps) {
   const [note, setNote] = useState("");
   const [status, setStatus] = useState<"idle" | "ready">("idle");
   const [error, setError] = useState("");
+  const formState = error ? "error" : status;
 
   const mailtoHref = useMemo(() => {
     const subject = "ProcureSource early access";
@@ -63,15 +64,22 @@ export function LaunchSubscribe({ compact = false }: LaunchSubscribeProps) {
         </span>
       </div>
 
-      <form className="stand-subscribe-form" onSubmit={handleSubmit}>
+      <form className="stand-subscribe-form" onSubmit={handleSubmit} noValidate>
         <label>
           <span>Work email</span>
           <input
             type="email"
             value={email}
-            onChange={(event) => setEmail(event.target.value)}
+            onChange={(event) => {
+              setEmail(event.target.value);
+              if (error) {
+                setError("");
+              }
+            }}
             placeholder="name@company.com"
             autoComplete="email"
+            aria-invalid={Boolean(error)}
+            aria-describedby="launch-updates-status"
             required
           />
         </label>
@@ -100,7 +108,7 @@ export function LaunchSubscribe({ compact = false }: LaunchSubscribeProps) {
           <a href="mailto:hello@procuresource.co">Send a note instead</a>
         </div>
 
-        <p className="stand-form-status" aria-live="polite">
+        <p id="launch-updates-status" className="stand-form-status" data-state={formState} aria-live="polite">
           {error}
           {status === "ready" && !error ? (
             <>

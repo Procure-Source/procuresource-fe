@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
-const DATABASE_URI =
-  process.env.COSMOS_MONGODB_URI?.trim() || process.env.MONGODB_URI?.trim();
+const MONGODB_URI = process.env.MONGODB_URI?.trim();
 
 interface MongooseCache {
   conn: typeof mongoose | null;
@@ -9,6 +8,7 @@ interface MongooseCache {
 }
 
 declare global {
+  // eslint-disable-next-line no-var
   var mongoose: MongooseCache | undefined;
 }
 
@@ -21,12 +21,12 @@ if (!global.mongoose) {
 export default async function connectDB(): Promise<typeof mongoose> {
   if (cached.conn) return cached.conn;
 
-  if (!DATABASE_URI || !/^mongodb(\+srv)?:\/\//.test(DATABASE_URI)) {
-    throw new Error("COSMOS_MONGODB_URI or MONGODB_URI is not configured");
+  if (!MONGODB_URI || !/^mongodb(\+srv)?:\/\//.test(MONGODB_URI)) {
+    throw new Error("MONGODB_URI is not configured");
   }
 
   if (!cached.promise) {
-    cached.promise = mongoose.connect(DATABASE_URI, {
+    cached.promise = mongoose.connect(MONGODB_URI, {
       bufferCommands: false,
     });
   }

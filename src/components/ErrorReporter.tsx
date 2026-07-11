@@ -1,44 +1,44 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 type ReporterProps = {
+  /*  ⎯⎯ props are only provided on the global-error page ⎯⎯ */
   error?: Error & { digest?: string };
   reset?: () => void;
 };
 
 export default function ErrorReporter({ error, reset }: ReporterProps) {
+  /* ─ instrumentation shared by every route ─ */
   const lastOverlayMsg = useRef("");
-  const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const pollRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const inIframe = window.parent !== window;
-    const shouldReportToParent = process.env.NODE_ENV === "development" && inIframe;
-    if (!shouldReportToParent) return;
+    if (!inIframe) return;
 
-    const send = (payload: unknown) => window.parent.postMessage(payload, window.location.origin);
+    const send = (payload: unknown) => window.parent.postMessage(payload, "*");
 
-    const onError = (event: ErrorEvent) =>
+    const onError = (e: ErrorEvent) =>
       send({
         type: "ERROR_CAPTURED",
         error: {
-          message: event.message,
-          stack: event.error?.stack,
-          filename: event.filename,
-          lineno: event.lineno,
-          colno: event.colno,
+          message: e.message,
+          stack: e.error?.stack,
+          filename: e.filename,
+          lineno: e.lineno,
+          colno: e.colno,
           source: "window.onerror",
         },
         timestamp: Date.now(),
       });
 
-    const onReject = (event: PromiseRejectionEvent) =>
+    const onReject = (e: PromiseRejectionEvent) =>
       send({
         type: "ERROR_CAPTURED",
         error: {
-          message: event.reason?.message ?? String(event.reason),
-          stack: event.reason?.stack,
+          message: e.reason?.message ?? String(e.reason),
+          stack: e.reason?.stack,
           source: "unhandledrejection",
         },
         timestamp: Date.now(),
@@ -46,14 +46,16 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
 
     const pollOverlay = () => {
       const overlay = document.querySelector("[data-nextjs-dialog-overlay]");
-      const node = overlay?.querySelector("h1, h2, .error-message, [data-nextjs-dialog-body]") ?? null;
-      const text = node?.textContent ?? "";
-
-      if (text && text !== lastOverlayMsg.current) {
-        lastOverlayMsg.current = text;
+      const node =
+        overlay?.querySelector(
+          "h1, h2, .error-message, [data-nextjs-dialog-body]"
+        ) ?? null;
+      const txt = node?.textContent ?? node?.innerHTML ?? "";
+      if (txt && txt !== lastOverlayMsg.current) {
+        lastOverlayMsg.current = txt;
         send({
           type: "ERROR_CAPTURED",
-          error: { message: text, source: "nextjs-dev-overlay" },
+          error: { message: txt, source: "nextjs-dev-overlay" },
           timestamp: Date.now(),
         });
       }
@@ -66,14 +68,13 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
     return () => {
       window.removeEventListener("error", onError);
       window.removeEventListener("unhandledrejection", onReject);
-      if (pollRef.current) clearInterval(pollRef.current);
+      pollRef.current && clearInterval(pollRef.current);
     };
   }, []);
 
+  /* ─ extra postMessage when on the global-error route ─ */
   useEffect(() => {
     if (!error) return;
-    if (process.env.NODE_ENV !== "development" || window.parent === window) return;
-
     window.parent.postMessage(
       {
         type: "global-error-reset",
@@ -86,62 +87,49 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
         timestamp: Date.now(),
         userAgent: navigator.userAgent,
       },
-      window.location.origin,
+      "*"
     );
   }, [error]);
 
+  /* ─ ordinary pages render nothing ─ */
   if (!error) return null;
 
-  const developmentDetails = [error.message, error.stack, error.digest ? `Digest: ${error.digest}` : ""]
-    .filter(Boolean)
-    .join("\n\n");
-
+  /* ─ global-error UI ─ */
   return (
-    <html lang="en">
-      <body className="min-h-screen bg-[#f4f3ed] p-4 text-[#352a24] antialiased">
-        <main className="flex min-h-[calc(100vh-32px)] items-center justify-center">
-          <section className="w-full max-w-[720px] rounded-[40px] border border-[#e1ddd5] bg-white p-6 text-center shadow-[0_24px_70px_rgba(61,48,40,0.08)] sm:p-8">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#fff4ed] text-[#b54708]">
-              <span className="text-[28px] leading-none">!</span>
-            </div>
-            <p className="mt-5 text-[13px] font-semibold text-[#0066cc]">ProcureSource recovery</p>
-            <h1 className="mt-3 text-[34px] font-semibold leading-tight sm:text-[46px]">This screen could not load.</h1>
-            <p className="mx-auto mt-4 max-w-[540px] text-[15px] leading-7 text-[#5d5148]">
-              Try again, or return to the product flow and reopen the right purchaser, supplier, or verification step.
+    <html>
+      <body className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
+        <div className="max-w-md w-full text-center space-y-6">
+          <div className="space-y-2">
+            <h1 className="text-2xl font-bold text-destructive">
+              Something went wrong!
+            </h1>
+            <p className="text-muted-foreground">
+              An unexpected error occurred. Please try again fixing with Orchids
             </p>
-            <div className="mt-7 flex flex-wrap justify-center gap-3">
-              {reset && (
-                <button
-                  type="button"
-                  onClick={reset}
-                  className="inline-flex h-11 items-center rounded-full bg-[#0066cc] px-5 text-[14px] font-semibold text-white hover:bg-[#1677e8]"
-                >
-                  Try again
-                </button>
-              )}
-              <Link
-                href="/"
-                className="inline-flex h-11 items-center rounded-full border border-[#d8d2c8] bg-white px-5 text-[14px] font-semibold text-[#352a24] hover:bg-[#eef7ff]"
-              >
-                Go home
-              </Link>
-              <Link
-                href="/flows"
-                className="inline-flex h-11 items-center rounded-full border border-[#b9ddff] bg-[#eef7ff] px-5 text-[14px] font-semibold text-[#0066cc] hover:bg-white"
-              >
-                View flow map
-              </Link>
-            </div>
+          </div>
+          <div className="space-y-2">
             {process.env.NODE_ENV === "development" && (
-              <details className="mt-6 rounded-[22px] border border-[#e1ddd5] bg-[#fbfbf7] p-4 text-left">
-                <summary className="cursor-pointer text-[13px] font-semibold text-[#5d5148]">Error details</summary>
-                <pre className="mt-3 max-h-[260px] overflow-auto rounded-[16px] bg-white p-3 text-[12px] leading-5 text-[#5d5148]">
-                  {developmentDetails}
+              <details className="mt-4 text-left">
+                <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground">
+                  Error details
+                </summary>
+                <pre className="mt-2 text-xs bg-muted p-2 rounded overflow-auto">
+                  {error.message}
+                  {error.stack && (
+                    <div className="mt-2 text-muted-foreground">
+                      {error.stack}
+                    </div>
+                  )}
+                  {error.digest && (
+                    <div className="mt-2 text-muted-foreground">
+                      Digest: {error.digest}
+                    </div>
+                  )}
                 </pre>
               </details>
             )}
-          </section>
-        </main>
+          </div>
+        </div>
       </body>
     </html>
   );

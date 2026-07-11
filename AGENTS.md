@@ -3,8 +3,8 @@ ProcureSource is a world-class industrial procurement powerhouse, serving as the
 
 ## Tech Stack
 - Frontend: Next.js 15 (App Router), Tailwind CSS, Framer Motion, Lucide React
-- Backend/API: Next.js route handlers plus optional Azure App Service backend
-- Database target: Azure Cosmos DB for MongoDB-compatible persistence
+- Backend/Auth/Database: Supabase (Auth, Storage, Realtime, SQL)
+- Internationalization: Custom multi-language support (English/Arabic/Hindi/Urdu)
 - Development: Turbopack for rapid iteration
 
 ## Architecture
@@ -17,12 +17,10 @@ ProcureSource is a world-class industrial procurement powerhouse, serving as the
   - `/rfqs`: Public RFQ market and unique link submission flow
 - `src/components/sections`: Reusable high-impact homepage and landing page sections
 - `src/components/ui`: Atomic UI components following a modern, "Apple-esque" aesthetic
-- `src/lib`: Shared utilities, hooks, parser helpers, RFQ repositories, and auth helpers
+- `src/lib`: Shared utilities, hooks, and context providers (Language, Auth, Supabase)
 
 ## User Preferences
-- Branding: Clear, calm, high-quality product messaging. Light theme only with ProcureSource blue accents (#0066cc, #2997ff).
-- Typography: Use DM Sans and Manrope only across the product.
-- Copy: Keep visible UI copy short, sentence case, and layman-friendly. Avoid provider/model names and avoid AI-heavy wording.
+- Branding: Powerful, "Undisputed Leader", "Global Powerhouse" messaging. High-impact dark themes with sharp blue accents (#0066cc, #2997ff).
 - Regional Focus: Full GCC coverage (UAE, KSA, Qatar, Kuwait, Oman, Bahrain) with a focus on Dubai and Riyadh as primary hubs.
 - Tech Specs: Extreme emphasis on verified engineering truth, certifications (UL, AHRI, SASO), and AI-driven matching.
 - Metric Rigor: Strict adherence to specified metric/imperial systems in RFQ submissions.
