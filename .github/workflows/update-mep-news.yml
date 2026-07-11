@@ -1,0 +1,34 @@
+name: Update MEP News
+
+on:
+  schedule:
+    - cron: "15 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Refresh static news data
+        run: npm run news:update
+
+      - name: Commit refreshed news
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update MEP news feed"
+          file_pattern: "src/lib/mep-news.ts"

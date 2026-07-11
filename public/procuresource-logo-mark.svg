@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="ProcureSource">
+  <rect width="128" height="128" fill="#0071e3"/>
+  <path d="M40 40c14.4-12.8 33.6-12.8 48 0" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="64" cy="56" r="19" fill="none" stroke="#ffffff" stroke-width="10"/>
+  <circle cx="64" cy="56" r="5.6" fill="#ffffff"/>
+  <path d="M64 80v22" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+  <path d="M46 102h36" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+</svg>

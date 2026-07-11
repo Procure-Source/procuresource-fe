@@ -1,0 +1,67 @@
+{
+  "name": "ProcureSource public index",
+  "canonical": "https://procuresource.co/ai-index.json",
+  "description": "ProcureSource is a UAE-first MEP RFQ workspace for BOQ reading, supplier quote links, quote comparison, document records, and award exports.",
+  "positioning": "Built from Dubai to the world.",
+  "publisher": "Grow Technology Services FZ LLC",
+  "legalName": "Grow Technology Services FZ LLC",
+  "contact": {
+    "general": "hello@procuresource.co",
+    "support": "support@procuresource.co"
+  },
+  "primaryPages": [
+    "https://procuresource.co/",
+    "https://procuresource.co/product",
+    "https://procuresource.co/flows",
+    "https://procuresource.co/purchasers",
+    "https://procuresource.co/suppliers",
+    "https://procuresource.co/rfqs",
+    "https://procuresource.co/news",
+    "https://procuresource.co/about",
+    "https://procuresource.co/faq",
+    "https://procuresource.co/access",
+    "https://procuresource.co/advertise",
+    "https://procuresource.co/security",
+    "https://procuresource.co/contact",
+    "https://procuresource.co/status",
+    "https://procuresource.co/privacy",
+    "https://procuresource.co/terms"
+  ],
+  "longTailPageFamilies": [
+    "UAE MEP RFQ tool",
+    "Dubai MEP procurement",
+    "MEP procurement UAE",
+    "construction procurement UAE",
+    "MEP market news",
+    "GCC MEP news",
+    "Dubai construction procurement",
+    "UAE facilities management news",
+    "GCC utilities news",
+    "MEP policy updates UAE",
+    "international MEP news",
+    "building services news",
+    "data center infrastructure news",
+    "supplier quote link",
+    "procurement user flows"
+  ],
+  "answerTargets": [
+    {
+      "question": "What is ProcureSource?",
+      "answer": "ProcureSource is a UAE-first MEP RFQ workspace for purchasers and suppliers.",
+      "source": "https://procuresource.co/"
+    },
+    {
+      "question": "What is on the ProcureSource News page?",
+      "answer": "The News page curates public MEP, construction, infrastructure, utilities, facilities-management, policy, and selected international built-environment headlines relevant to UAE and GCC procurement teams.",
+      "source": "https://procuresource.co/news"
+    },
+    {
+      "question": "What user flows does ProcureSource support?",
+      "answer": "ProcureSource maps purchaser RFQ creation, supplier quoting, and verification review into separate user lanes.",
+      "source": "https://procuresource.co/flows"
+    }
+  ],
+  "publicStatus": "controlled-access product surface",
+  "productDisclosure": "public product overview with private operational details withheld",
+  "updatedAt": "2026-07-10"
+}

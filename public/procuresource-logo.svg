@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 220" role="img" aria-labelledby="title desc">
+  <title id="title">ProcureSource logo</title>
+  <desc id="desc">An Apple blue ProcureSource launch mark for a UAE MEP RFQ platform.</desc>
+  <rect x="48" y="38" width="144" height="144" fill="#0071e3"/>
+  <path d="M93 83c16-15 38-15 54 0" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="120" cy="102" r="23" fill="none" stroke="#ffffff" stroke-width="12"/>
+  <circle cx="120" cy="102" r="7" fill="#ffffff"/>
+  <path d="M120 131v26" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+  <path d="M98 157h44" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+  <text x="226" y="104" fill="#3d3028" font-family="Consolas, Menlo, Monaco, monospace" font-size="54" font-weight="400">ProcureSource</text>
+  <text x="230" y="148" fill="#6b5c50" font-family="Consolas, Menlo, Monaco, monospace" font-size="22" font-weight="400">UAE MEP RFQ / PRIVATE LAUNCH</text>
+</svg>

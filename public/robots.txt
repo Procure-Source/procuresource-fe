@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+Allow: /news
+Allow: /about
+Allow: /faq
+Allow: /access
+Allow: /contact
+Allow: /status
+Allow: /privacy
+Allow: /terms
+Allow: /llms.txt
+Allow: /ai-index.json
+Disallow: /api/
+
+User-agent: OAI-SearchBot
+Allow: /
+Allow: /news
+Allow: /llms.txt
+Allow: /ai-index.json
+Disallow: /api/
+
+User-agent: GPTBot
+Allow: /
+Allow: /news
+Allow: /llms.txt
+Allow: /ai-index.json
+Disallow: /api/
+
+Sitemap: https://procuresource.co/sitemap.xml
+Host: https://procuresource.co

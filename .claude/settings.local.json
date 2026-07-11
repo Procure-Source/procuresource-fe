@@ -1,0 +1,41 @@
+{
+    "permissions":  {
+                        "allow":  [
+                                      "Read(//d/projects/procuresource/**)",
+                                      "Bash(npx tsc:*)",
+                                      "Bash(vercel --version)",
+                                      "Bash(git rev-list:*)",
+                                      "WebFetch(domain:procuresource.co)",
+                                      "Bash(npm run:*)",
+                                      "Bash(grep -E \u0027^C:.*$\u0027)",
+                                      "Bash(curl -s -o /dev/null -w \u0027HTTP %{http_code}\\\\n\u0027 http://localhost:3000/)",
+                                      "Bash(npx:*)",
+                                      "Bash(git config:*)",
+                                      "Bash(git symbolic-ref:*)",
+                                      "Bash(git add:*)",
+                                      "Bash(git commit:*)",
+                                      "Bash(git push:*)",
+                                      "Bash(gh pr:*)",
+                                      "Bash(gh repo:*)",
+                                      "Bash(gh auth:*)",
+                                      "Bash(gh api:*)",
+                                      "Bash(gh org:*)",
+                                      "Bash(git fetch:*)",
+                                      "WebSearch",
+                                      "Bash(curl:*)",
+                                      "Bash(git check-ignore:*)",
+                                      "Bash(git remote:*)",
+                                      "WebFetch(domain:procuresource-1x5f9kfj1-lycoris-projects-97d40f60.vercel.app)",
+                                      "Read(//c/Users/timem/AppData/Roaming/**)",
+                                      "Read(//c/Users/timem/**)",
+                                      "Bash(cat next.config.*)",
+                                      "Bash(git checkout:*)",
+                                      "Bash(git pull:*)",
+                                      "Bash(node -e \"try{require\\(\u0027sharp\u0027\\);console.log\\(\u0027sharp: yes\u0027\\)}catch{console.log\\(\u0027sharp: no\u0027\\)}\")",
+                                      "Bash(node tools/generate-logo-pngs.mjs)",
+                                      "Bash(node:*)",
+                                      "WebFetch(domain:events.ycombinator.com)",
+                                      "WebFetch(domain:vercel.com)"
+                                  ]
+                    }
+}
