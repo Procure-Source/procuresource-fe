@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import StructuredData from "@/components/seo/structured-data";
+import { GoogleAnalytics } from '@next/third-parties/google';
+
 
 export const metadata: Metadata = {
   title: {
@@ -119,6 +121,7 @@ export default function RootLayout({
       <body className="antialiased" suppressHydrationWarning>
         {children}
       </body>
+      <GoogleAnalytics gaId="G-LB6GXR1EZM" />
     </html>
   );
 }
