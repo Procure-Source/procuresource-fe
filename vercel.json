@@ -16,8 +16,6 @@
         "Cross-Origin-Resource-Policy": "same-origin"
       }
     },
-    { "src": "/api", "status": 404 },
-    { "src": "/api/(.*)", "status": 404 },
     { "handle": "filesystem" }
   ]
 }

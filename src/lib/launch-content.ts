@@ -240,7 +240,7 @@ export const launchPages: Record<LaunchPageKey, LaunchPageContent> = {
     title: "Public website live. Product access closed.",
     location: "NOW",
     intro:
-      "The launch site is public. The buyer and supplier product, accounts, and APIs remain dormant.",
+      "The launch site is public. Buyer and supplier product access remains closed.",
     rows: [
       {
         label: "Website",
@@ -252,7 +252,7 @@ export const launchPages: Record<LaunchPageKey, LaunchPageContent> = {
         label: "Product",
         title: "The application remains private.",
         body:
-          "Visitors cannot use buyer workflows, supplier workflows, backend routes, or product APIs from the public site.",
+          "Visitors cannot use buyer workflows, supplier workflows, account areas, or live RFQ tools from the public site.",
       },
       {
         label: "Safety",
@@ -272,7 +272,7 @@ export const launchPages: Record<LaunchPageKey, LaunchPageContent> = {
     title: "Privacy for a private launch site.",
     location: "DATA",
     intro:
-      "This privacy policy explains what ProcureSource collects on the public launch site while the product, accounts, and APIs remain closed.",
+      "This privacy policy explains what ProcureSource collects on the public launch site while product accounts remain closed.",
     rows: [
       {
         label: "Updated",
@@ -290,7 +290,7 @@ export const launchPages: Record<LaunchPageKey, LaunchPageContent> = {
         label: "No app",
         title: "No public RFQ account data is collected here.",
         body:
-          "The public website does not accept live BOQs, supplier quotes, awarded contracts, account passwords, payment data, or product API usage from visitors.",
+          "The public website does not accept live BOQs, supplier quotes, awarded contracts, account passwords, payment data, or RFQ workspace activity from visitors.",
       },
       {
         label: "Use",
@@ -370,7 +370,7 @@ export const launchPages: Record<LaunchPageKey, LaunchPageContent> = {
         label: "Use",
         title: "Do not misuse the launch site.",
         body:
-          "You may not attempt to access private routes, backend systems, dormant APIs, secrets, accounts, unpublished product flows, or security controls.",
+          "You may not attempt to access private routes, secrets, accounts, unpublished product flows, or security controls.",
       },
       {
         label: "IP",

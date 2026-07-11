@@ -1,15 +1,18 @@
 # ProcureSource Launch Deployment
 
-Public launch frontend:
+ProcureSource is currently a frontend-only Next.js launch site.
 
-- Vercel: `https://procuresource-launch.vercel.app`
-- Azure Static Web Apps: `https://purple-forest-0948a4910.7.azurestaticapps.net`
+## Production
 
-Dormant Azure backend:
+- Hosting: Vercel
+- Production domain: `https://procuresource.co`
+- Preview/deploy behavior: pushes to `main` are auto-deployed by the connected Vercel project.
 
-- App Service: `https://procuresource-prod-2605.azurewebsites.net`
-- Health: `GET /health`
-- Dormant API surface: `GET /api/*` returns `404` during launch mode.
-- CORS is intentionally not enabled. The public launch site does not call the backend.
+## Local
 
-Azure production resources live under `rg-procuresource-prod`.
+```bash
+npm install
+npm run dev
+```
+
+The public site does not require a database, auth, server routes, or backend environment variables.

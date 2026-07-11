@@ -50,7 +50,7 @@
     },
     {
       "question": "Is the ProcureSource product app public?",
-      "answer": "No. The public website is a coming-soon launch surface. The product app, accounts, and APIs remain private.",
+      "answer": "No. The public website is a coming-soon launch surface. Product accounts and live RFQ workflows are not public.",
       "source": "https://procuresource.co/status"
     }
   ],

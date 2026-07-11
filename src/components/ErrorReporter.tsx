@@ -8,7 +8,7 @@ type ReporterProps = {
   reset?: () => void;
 };
 
-export default function ErrorReporter({ error, reset }: ReporterProps) {
+export default function ErrorReporter({ error }: ReporterProps) {
   /* ─ instrumentation shared by every route ─ */
   const lastOverlayMsg = useRef("");
   const pollRef = useRef<NodeJS.Timeout | null>(null);
@@ -68,7 +68,9 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
     return () => {
       window.removeEventListener("error", onError);
       window.removeEventListener("unhandledrejection", onReject);
-      pollRef.current && clearInterval(pollRef.current);
+      if (pollRef.current) {
+        clearInterval(pollRef.current);
+      }
     };
   }, []);
 
@@ -104,7 +106,7 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
               Something went wrong!
             </h1>
             <p className="text-muted-foreground">
-              An unexpected error occurred. Please try again fixing with Orchids
+              An unexpected error occurred. Please try again.
             </p>
           </div>
           <div className="space-y-2">

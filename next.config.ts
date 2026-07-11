@@ -15,14 +15,7 @@ const nextConfig: NextConfig = {
         hostname: '**',
       },
     ],
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
   }
 };
 
 export default nextConfig;
-// Orchids restart: 1769722387207

@@ -2,22 +2,19 @@
 ProcureSource is a world-class industrial procurement powerhouse, serving as the definitive technical database for MEP and industrial equipment. It bridges the gap between global manufacturers and regional excellence, with a dominant presence across the GCC (UAE, Saudi Arabia, Qatar, etc.) and expanding international roots in Europe and North America.
 
 ## Tech Stack
-- Frontend: Next.js 15 (App Router), Tailwind CSS, Framer Motion, Lucide React
-- Backend/Auth/Database: Supabase (Auth, Storage, Realtime, SQL)
-- Internationalization: Custom multi-language support (English/Arabic/Hindi/Urdu)
+- Frontend: Next.js 15 (App Router), Tailwind CSS
+- Hosting: Vercel
+- Data capture: Mailto-based launch and newsletter requests only
 - Development: Turbopack for rapid iteration
 
 ## Architecture
-- `src/app`: Next.js App Router for all pages and API routes
-  - `/register`: Multi-role registration with document upload (Trade License, VAT)
-  - `/dashboard`: Role-based redirector
-  - `/pm/dashboard`: Purchase Manager RFQ generation and management
-  - `/supplier/dashboard`: Supplier RFQ submission and tracking
-  - `/admin/dashboard`: Document verification and platform oversight
-  - `/rfqs`: Public RFQ market and unique link submission flow
-- `src/components/sections`: Reusable high-impact homepage and landing page sections
-- `src/components/ui`: Atomic UI components following a modern, "Apple-esque" aesthetic
-- `src/lib`: Shared utilities, hooks, and context providers (Language, Auth, Supabase)
+- `src/app`: Next.js App Router for public launch pages only
+  - `/`: Coming-soon launch page
+  - `/news`: Static public news/watchlist page
+  - `/about`, `/faq`, `/access`, `/contact`, `/status`, `/privacy`, `/terms`: Static launch pages
+- `src/components/launch`: Launch navigation, footer, page shell, preloader, and mailto signup forms
+- `src/components/seo`: Structured data for the public site
+- `src/lib`: Static launch content and metadata helpers
 
 ## User Preferences
 - Branding: Powerful, "Undisputed Leader", "Global Powerhouse" messaging. High-impact dark themes with sharp blue accents (#0066cc, #2997ff).
@@ -27,10 +24,9 @@ ProcureSource is a world-class industrial procurement powerhouse, serving as the
 
 ## Project Guidelines
 - Aesthetic: Modern industrial, distinctive typography (Space Grotesk style), and motion-driven reveals.
-- Functional: 24/7 global support availability, multi-regional stock tracking, and instant RFQ/Submittal generation.
-- Role-Based Access: Strict segregation of Supplier, Purchase Manager, and Admin dashboards.
+- Functional: Public launch site only. Do not add backend routes, database clients, auth providers, or server integrations unless explicitly requested.
+- Deployment: Vercel auto-deploys pushes to `main`; no GitHub Actions deployment workflow is used.
 
 ## Common Patterns
-- Registration: Multi-step information gathering with Trade License and VAT Certificate requirements.
-- RFQ Flow: Creator specifies metric system -> Unique link generation -> Supplier submits based on metric system.
-- Verification: Admin-only verification of documents before public listing for suppliers.
+- Launch requests: Forms validate input in the browser and prepare a `mailto:` message.
+- Content: Public-facing product detail stays intentionally high level until the private product is ready.

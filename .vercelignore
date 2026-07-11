@@ -10,10 +10,6 @@ out
 output
 test-results
 tools
-backend
 *.pdf
-*.xlsx
-*.sql
 tsconfig.tsbuildinfo
-bun.lock
 *.log

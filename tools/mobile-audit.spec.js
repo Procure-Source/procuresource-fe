@@ -1,19 +1,17 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const { test, expect } = require("@playwright/test");
 
 const baseUrl = process.env.MOBILE_AUDIT_BASE_URL || "http://127.0.0.1:3050";
 const routes = [
   "/",
-  "/products",
-  "/rfqs",
-  "/spec-matcher",
-  "/submittals",
-  "/login",
-  "/register",
-  "/markets/uae",
-  "/global/international-compliance",
-  "/pm/dashboard",
-  "/supplier/dashboard",
-  "/admin/dashboard",
+  "/news",
+  "/about",
+  "/faq",
+  "/access",
+  "/contact",
+  "/status",
+  "/privacy",
+  "/terms",
 ];
 
 const viewports = [
@@ -29,7 +27,7 @@ function safeName(route) {
 test.describe("mobile responsiveness audit", () => {
   for (const viewport of viewports) {
     for (const route of routes) {
-      test(`${viewport.name} ${route}`, async ({ page }, testInfo) => {
+      test(`${viewport.name} ${route}`, async ({ page }) => {
         await page.setViewportSize({ width: viewport.width, height: viewport.height });
         await page.goto(`${baseUrl}${route}`, { waitUntil: "networkidle", timeout: 60000 });
         await page.screenshot({
@@ -80,7 +78,11 @@ test.describe("mobile responsiveness audit", () => {
             .filter((item) => item.right > viewportWidth + 1 || item.left < -1)
             .filter((item) => item.position !== "fixed")
             .filter((item) => !hasClippingAncestor(item.element))
-            .map(({ element, ...item }) => item)
+            .map((item) => {
+              const copy = { ...item };
+              delete copy.element;
+              return copy;
+            })
             .slice(0, 20);
         });
 

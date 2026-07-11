@@ -1,31 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ProcureSource Frontend
 
-## Getting Started
+ProcureSource is currently a frontend-only Next.js launch site for a UAE-first MEP RFQ platform in private build.
 
-First, run the development server:
+## Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev`: start the local Next.js dev server with Turbopack.
+- `npm run build`: build the frontend.
+- `npm run start`: run the built Next.js app.
+- `npm run lint`: lint the repository.
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+The project is connected to Vercel. Pushes to `main` are auto-deployed from Vercel.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+There is no backend, database client, auth provider, GitHub Actions deployment workflow, or server API surface in this repo.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 

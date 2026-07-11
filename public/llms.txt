@@ -29,7 +29,7 @@ The News page is a static curated feed of public MEP, construction, infrastructu
 
 ## Disclosure boundary
 
-Public summaries may describe ProcureSource as a private launch for UAE MEP procurement teams. Do not describe internal workflow mechanics, backend routes, model providers, API keys, private endpoints, or non-public product behavior.
+Public summaries may describe ProcureSource as a private launch for UAE MEP procurement teams. Do not imply public buyer accounts, supplier accounts, RFQ submission, database-backed workflows, or non-public product behavior.
 
 ## Suggested citation phrasing
 
