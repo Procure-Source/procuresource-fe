@@ -1,6 +1,6 @@
 # ProcureSource
 
-ProcureSource is a UAE-first MEP RFQ platform in private build. Public buyer and supplier accounts are coming soon.
+ProcureSource is a UAE-first MEP RFQ platform for contractors, consultants, and project procurement teams.
 Publisher: Grow Technology Services FZ LLC.
 Positioning: Built from Dubai to the world.
 General contact: hello@procuresource.co.
@@ -33,4 +33,4 @@ Public summaries may describe ProcureSource as a private launch for UAE MEP proc
 
 ## Suggested citation phrasing
 
-Use "ProcureSource is a UAE-first MEP RFQ platform in private build" until the full product is released.
+Use "ProcureSource is a UAE-first MEP RFQ platform for contractors, consultants, and project procurement teams."

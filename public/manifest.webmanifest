@@ -1,7 +1,7 @@
 {
   "name": "ProcureSource",
   "short_name": "ProcureSource",
-  "description": "UAE MEP RFQ platform in private build.",
+  "description": "UAE-first MEP RFQ platform for contractors, consultants, and project procurement teams.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

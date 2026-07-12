@@ -8,10 +8,10 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
   title: {
-    default: "ProcureSource - UAE MEP RFQ Platform Coming Soon",
+    default: "ProcureSource | UAE MEP RFQ Platform",
     template: "%s | ProcureSource",
   },
-  description: "ProcureSource is a UAE-first MEP RFQ platform in private build. Public accounts are coming soon.",
+  description: "ProcureSource is a UAE-first MEP RFQ platform for contractors, consultants, and project procurement teams.",
   keywords: [
     "ProcureSource",
     "UAE MEP RFQ",
@@ -53,8 +53,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "ProcureSource - UAE MEP RFQ Platform Coming Soon",
-    description: "A private UAE-first MEP RFQ platform for contractors, consultants, and project procurement teams.",
+    title: "ProcureSource | UAE MEP RFQ Platform",
+    description: "A UAE-first MEP RFQ platform for contractors, consultants, and project procurement teams.",
     url: "https://procuresource.co",
     siteName: "ProcureSource",
     locale: "en_US",
@@ -71,8 +71,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ProcureSource - UAE MEP RFQ Platform Coming Soon",
-    description: "A private UAE-first MEP RFQ platform for project procurement teams.",
+    title: "ProcureSource | UAE MEP RFQ Platform",
+    description: "A UAE-first MEP RFQ platform for project procurement teams.",
     images: ["/procuresource-og.png"],
   },
   icons: {

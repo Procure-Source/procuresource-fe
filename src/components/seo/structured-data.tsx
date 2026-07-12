@@ -14,7 +14,7 @@ const structuredData = {
       "@type": "Organization",
       "@id": `${baseUrl}/#organization`,
       name: "ProcureSource",
-      alternateName: "ProcureSource by Grow Technology Services FZ LLC",
+      alternateName: "ProcureSource UAE MEP RFQ Platform",
       legalName: "Grow Technology Services FZ LLC",
       url: baseUrl,
       email: "hello@procuresource.co",
@@ -56,7 +56,8 @@ const structuredData = {
       "@id": `${baseUrl}/#website`,
       url: baseUrl,
       name: "ProcureSource",
-      description: "ProcureSource is a UAE MEP RFQ platform in private build, with public accounts coming soon.",
+      alternateName: "ProcureSource UAE MEP RFQ Platform",
+      description: "ProcureSource is a UAE-first MEP RFQ platform for contractors, consultants, and project procurement teams.",
       publisher: {
         "@id": `${baseUrl}/#organization`,
       },

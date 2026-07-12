@@ -1,9 +1,44 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { LaunchFooter } from "@/components/launch/launch-footer";
 import { LaunchNav } from "@/components/launch/launch-nav";
 import { LaunchSubscribe } from "@/components/launch/launch-subscribe";
 import { faqs, launchNotes, standSections } from "@/lib/launch-content";
+
+const homeDescription =
+  "ProcureSource is a UAE-first MEP RFQ platform for contractors, consultants, and project procurement teams.";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "ProcureSource | UAE MEP RFQ Platform",
+  },
+  description: homeDescription,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "ProcureSource | UAE MEP RFQ Platform",
+    description: homeDescription,
+    url: "https://procuresource.co",
+    siteName: "ProcureSource",
+    type: "website",
+    images: [
+      {
+        url: "/procuresource-og.png",
+        width: 1200,
+        height: 630,
+        alt: "ProcureSource UAE MEP RFQ platform",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ProcureSource | UAE MEP RFQ Platform",
+    description: homeDescription,
+    images: ["/procuresource-og.png"],
+  },
+};
 
 export default function Home() {
   return (

@@ -1,7 +1,7 @@
 {
   "name": "ProcureSource AI index",
   "canonical": "https://procuresource.co/ai-index.json",
-  "description": "ProcureSource is a UAE-first MEP RFQ platform in private build. Public accounts are coming soon.",
+  "description": "ProcureSource is a UAE-first MEP RFQ platform for contractors, consultants, and project procurement teams.",
   "positioning": "Built from Dubai to the world.",
   "publisher": "Grow Technology Services FZ LLC",
   "legalName": "Grow Technology Services FZ LLC",
@@ -40,7 +40,7 @@
   "answerTargets": [
     {
       "question": "What is ProcureSource?",
-      "answer": "ProcureSource is a UAE-first MEP RFQ platform in private build. Public buyer and supplier accounts are not open yet.",
+      "answer": "ProcureSource is a UAE-first MEP RFQ platform for contractors, consultants, and project procurement teams.",
       "source": "https://procuresource.co/"
     },
     {
