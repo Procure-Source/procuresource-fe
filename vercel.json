@@ -16,6 +16,10 @@
         "Cross-Origin-Resource-Policy": "same-origin"
       }
     },
+    {
+      "src": "/(login|register|dashboard|rfqs|products|spec-matcher|submittals|admin|pm|supplier|manufacturer|manufacturers|agents|api-docs|certifications|ahri-chiller-certification-lookup|mep-procurement|gcc-mep-procurement|verified-gcc-mep-suppliers|messages|notifications|projects|saved|search|support|careers|blog|advertise|onboarding|forgot-password|reset-password|verify-email|sitemap)(/.*)?",
+      "status": 410
+    },
     { "handle": "filesystem" }
   ]
 }
