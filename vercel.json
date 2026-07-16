@@ -7,7 +7,7 @@
       "src": "/(.*)",
       "continue": true,
       "headers": {
-        "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://region1.google-analytics.com; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; frame-ancestors 'none'; manifest-src 'self'; upgrade-insecure-requests",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://widget.getcommi.com; script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://widget.getcommi.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://region1.google-analytics.com https://widget.getcommi.com https://ai.getcommi.com; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://widget.getcommi.com https://ai.getcommi.com; frame-src https://widget.getcommi.com https://ai.getcommi.com; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; frame-ancestors 'none'; manifest-src 'self'; upgrade-insecure-requests",
         "X-Frame-Options": "DENY",
         "X-Content-Type-Options": "nosniff",
         "Referrer-Policy": "no-referrer",
