@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 import { LaunchPreloader } from "@/components/launch/launch-preloader";
 import StructuredData from "@/components/seo/structured-data";
-import { GoogleAnalytics } from '@next/third-parties/google';
-
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: {
@@ -121,6 +121,23 @@ export default function RootLayout({
         <LaunchPreloader />
         {children}
         <GoogleAnalytics gaId="G-LB6GXR1EZM" />
+        <Script
+          id="commi-widget-config"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.__commiWidgetKey = "wk_2027da5579eb46748e99531b82d28e0242109103022e1212";
+              window.__commiApiBase = "https://ai.getcommi.com";
+            `,
+          }}
+        />
+        <Script
+          id="commi-widget"
+          src="https://widget.getcommi.com/widget.js"
+          strategy="afterInteractive"
+          data-widget-key="wk_2027da5579eb46748e99531b82d28e0242109103022e1212"
+          data-api-base="https://ai.getcommi.com"
+        />
       </body>
     </html>
   );
