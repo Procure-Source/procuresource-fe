@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ProcureSource — RFQ software for UAE MEP procurement managers</title>
+<meta name="description" content="Turn your BOQ into an RFQ in minutes. ProcureSource gives UAE MEP procurement managers one link to send to every supplier, and brings every quote back into a single comparison table.">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ProcureSource">
+<meta property="og:locale" content="en_AE">
+<meta property="og:title" content="ProcureSource — RFQ software for UAE MEP procurement managers">
+<meta property="og:description" content="Turn your BOQ into an RFQ in minutes. One link brings every supplier's quote into a single comparison table.">
+<!-- TODO: set og:url to the production URL and add og:image (1200x630) once the domain is live. -->
+<meta property="og:url" content="https://procuresource.ae/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ProcureSource — RFQ software for UAE MEP procurement managers">
+<meta name="twitter:description" content="Turn your BOQ into an RFQ in minutes. One link brings every supplier's quote into a single comparison table.">
+
+<!--
+  Fonts: Newsreader (display) + IBM Plex Sans (body/UI).
+  TODO before production: self-host these as woff2 with <link rel="preload"> and a
+  size-adjusted local fallback. The hosted Google Fonts link below is fine for local
+  development only — it costs a third-party connection and a small swap reflow.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Sentinel: the header takes its hairline border once this scrolls out of view. -->
+<div id="scroll-sentinel" aria-hidden="true"></div>
+
+<header class="site-header" id="site-header">
+  <div class="container site-header__inner">
+    <a class="wordmark" href="#top">ProcureSource</a>
+    <nav class="site-nav" aria-label="Primary">
+      <!-- TODO: point at the live demo URL. -->
+      <a class="site-nav__link" href="#">Live Demo</a>
+      <a class="btn btn--primary btn--sm" href="#request-access">Request access</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="container">
+      <h1 class="hero__headline anim" style="--anim-delay:0ms">One link to all your suppliers.</h1>
+      <p class="hero__subhead prose anim" style="--anim-delay:60ms">Turn your BOQ into an RFQ in minutes. One link brings every supplier&rsquo;s quote into a single comparison table.</p>
+      <div class="hero__actions anim" style="--anim-delay:120ms">
+        <a class="btn btn--primary" href="#request-access">Request access</a>
+        <!-- TODO: point at the live demo URL. -->
+        <a class="btn btn--quiet" href="#">Live Demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how-it-works" aria-labelledby="how-it-works-heading">
+    <div class="container">
+      <h2 class="section__heading" id="how-it-works-heading">How it works</h2>
+      <ol class="steps" role="list">
+        <li class="step">
+          <span class="step__number" aria-hidden="true">01</span>
+          <h3 class="step__label">Upload the BOQ</h3>
+          <p class="step__line">Your bill of quantities is parsed into structured line items you review and correct before anything goes out.</p>
+        </li>
+        <li class="step">
+          <span class="step__number" aria-hidden="true">02</span>
+          <h3 class="step__label">Share one link</h3>
+          <p class="step__line">Send a single tokenised link to every supplier on the package &mdash; they register through it and quote against your line items.</p>
+        </li>
+        <li class="step">
+          <span class="step__number" aria-hidden="true">03</span>
+          <h3 class="step__label">Compare quotes</h3>
+          <p class="step__line">Every quote lands in one table &mdash; price, lead time and compliance, side by side.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--launch" id="request-access" aria-labelledby="launch-heading">
+    <div class="container launch">
+
+      <div class="launch__copy">
+        <h2 class="section__heading" id="launch-heading">ProcureSource is in private launch.</h2>
+        <p class="prose">We&rsquo;re onboarding a small group of UAE MEP procurement teams to run their first RFQs on the platform. If you buy MEP packages against a BOQ, request access &mdash; we&rsquo;ll set you up directly and walk your first RFQ through with you. Wider access opens later this year.</p>
+      </div>
+
+      <div class="launch__form panel">
+        <form id="access-form" class="form" novalidate>
+          <h3 class="form__title">Request access</h3>
+
+          <div class="field">
+            <label class="field__label" for="fullName">Full name</label>
+            <input class="field__input" type="text" id="fullName" name="fullName" autocomplete="name" required
+                   aria-describedby="fullName-error">
+            <p class="field__error" id="fullName-error" role="alert" hidden></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="email">Work email</label>
+            <input class="field__input" type="email" id="email" name="email" autocomplete="email" required
+                   aria-describedby="email-error">
+            <p class="field__error" id="email-error" role="alert" hidden></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="company">Company</label>
+            <input class="field__input" type="text" id="company" name="company" autocomplete="organization" required
+                   aria-describedby="company-error">
+            <p class="field__error" id="company-error" role="alert" hidden></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="role">Role</label>
+            <input class="field__input" type="text" id="role" name="role" autocomplete="organization-title" required
+                   aria-describedby="role-error">
+            <p class="field__error" id="role-error" role="alert" hidden></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="whatsapp">WhatsApp number <span class="field__optional">optional</span></label>
+            <input class="field__input" type="tel" id="whatsapp" name="whatsapp" inputmode="tel" autocomplete="tel"
+                   placeholder="+971" aria-describedby="whatsapp-error">
+            <p class="field__error" id="whatsapp-error" role="alert" hidden></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="packages">What MEP packages do you buy? <span class="field__optional">optional</span></label>
+            <input class="field__input" type="text" id="packages" name="packages" maxlength="140"
+                   aria-describedby="packages-error">
+            <p class="field__error" id="packages-error" role="alert" hidden></p>
+          </div>
+
+          <p class="form__error" id="form-error" role="alert" hidden></p>
+
+          <button class="btn btn--primary btn--block" type="submit">Request access</button>
+        </form>
+
+        <!-- Replaces the form in place on success. -->
+        <div class="form-success" id="form-success" role="status" tabindex="-1" hidden>
+          <h3 class="form-success__title">Request received.</h3>
+          <p class="prose">Thank you &mdash; someone from ProcureSource will reply within one business day.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faq-heading">
+    <div class="container">
+      <h2 class="section__heading" id="faq-heading">Frequently asked questions</h2>
+
+      <div class="faq">
+
+        <article class="faq__item">
+          <h3 class="faq__question">
+            <button type="button" class="faq__trigger" id="faq-1-trigger" aria-expanded="false" aria-controls="faq-1-panel">
+              <span>Is ProcureSource a marketplace?</span>
+            </button>
+          </h3>
+          <div class="faq__panel" id="faq-1-panel" role="region" aria-labelledby="faq-1-trigger" hidden>
+            <p class="prose">No. ProcureSource is a tool for running your own RFQ with the suppliers you choose to invite. We don&rsquo;t sit in the transaction &mdash; deals close directly between you and your supplier, and we take no commission.</p>
+          </div>
+        </article>
+
+        <article class="faq__item">
+          <h3 class="faq__question">
+            <button type="button" class="faq__trigger" id="faq-2-trigger" aria-expanded="false" aria-controls="faq-2-panel">
+              <span>Do suppliers need an account before I can invite them?</span>
+            </button>
+          </h3>
+          <!-- GUESS: registration flow details. Correct the specifics if they differ from the build. -->
+          <div class="faq__panel" id="faq-2-panel" role="region" aria-labelledby="faq-2-trigger" hidden>
+            <p class="prose">No. You share one tokenised link and each supplier registers through it when they open it, so there is nothing for them to set up in advance. They land on your line items and can start quoting immediately.</p>
+          </div>
+        </article>
+
+        <article class="faq__item">
+          <h3 class="faq__question">
+            <button type="button" class="faq__trigger" id="faq-3-trigger" aria-expanded="false" aria-controls="faq-3-panel">
+              <span>What file formats does a BOQ upload accept?</span>
+            </button>
+          </h3>
+          <!-- GUESS: I do not know what the parser actually accepts. This is the answer most likely to be wrong on the page. -->
+          <div class="faq__panel" id="faq-3-panel" role="region" aria-labelledby="faq-3-trigger" hidden>
+            <p class="prose">Excel and CSV bills of quantities, and PDF where the tables are readable. The parser turns the sheet into structured line items, and you review and correct them before the RFQ goes out.</p>
+          </div>
+        </article>
+
+        <article class="faq__item">
+          <h3 class="faq__question">
+            <button type="button" class="faq__trigger" id="faq-4-trigger" aria-expanded="false" aria-controls="faq-4-panel">
+              <span>Who can see my BOQ and my pricing?</span>
+            </button>
+          </h3>
+          <!-- GUESS: team-level visibility and supplier isolation. Confirm against the real permissions model. -->
+          <div class="faq__panel" id="faq-4-panel" role="region" aria-labelledby="faq-4-trigger" hidden>
+            <p class="prose">Only you and the suppliers you send the link to. Each supplier sees the line items you shared and their own quote &mdash; not other suppliers&rsquo; prices, lead times, or who else was invited. The comparison table is visible to your team alone.</p>
+          </div>
+        </article>
+
+        <article class="faq__item">
+          <h3 class="faq__question">
+            <button type="button" class="faq__trigger" id="faq-5-trigger" aria-expanded="false" aria-controls="faq-5-panel">
+              <span>What does it cost?</span>
+            </button>
+          </h3>
+          <div class="faq__panel" id="faq-5-panel" role="region" aria-labelledby="faq-5-trigger" hidden>
+            <p class="prose">Nothing. ProcureSource is free for purchasing teams, permanently. We take no commission on the deals you close.</p>
+          </div>
+        </article>
+
+        <article class="faq__item">
+          <h3 class="faq__question">
+            <button type="button" class="faq__trigger" id="faq-6-trigger" aria-expanded="false" aria-controls="faq-6-panel">
+              <span>When does wider access open?</span>
+            </button>
+          </h3>
+          <!-- GUESS: "later this year" is the only timing signal in the brief; the rest is inferred. -->
+          <div class="faq__panel" id="faq-6-panel" role="region" aria-labelledby="faq-6-trigger" hidden>
+            <p class="prose">Later this year. We are working with a small group of UAE MEP procurement teams first so that we can support each team&rsquo;s first RFQ properly. Request access and we will come back to you as places open.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <span class="wordmark">ProcureSource</span>
+      <p class="site-footer__line">RFQ software for UAE MEP procurement managers.</p>
+    </div>
+    <div class="site-footer__meta">
+      <!-- TODO: confirm the contact address and the LinkedIn company URL. -->
+      <a href="mailto:hello@procuresource.ae">hello@procuresource.ae</a>
+      <a href="https://www.linkedin.com/company/procuresource" rel="noopener">LinkedIn</a>
+      <span class="site-footer__copyright">&copy; 2026 ProcureSource</span>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
