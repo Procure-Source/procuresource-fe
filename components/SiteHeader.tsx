@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 import Logo from "@/components/common/Logo";
@@ -14,6 +15,8 @@ const SECTIONS = [
   { id: "how-it-works", label: "How it works" },
   { id: "faq", label: "FAQ" },
 ] as const;
+
+const rootHash = (hash: string) => ({ pathname: "/", hash });
 
 export default function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -130,12 +133,12 @@ export default function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex min-h-16 w-full max-w-page items-center justify-between gap-4 px-gutter xs:min-h-18">
-        <a
+        <Link
           className="font-display text-body font-semibold tracking-wordmark whitespace-nowrap no-underline transition-colors duration-140 hover:text-accent xs:text-wordmark"
-          href="#top"
+          href={rootHash("top")}
         >
           <Logo />
-        </a>
+        </Link>
 
         {/* 44px hit target. `group` lets the bars react to aria-expanded. */}
         <button
@@ -166,15 +169,15 @@ export default function SiteHeader() {
           {SECTIONS.map((section) => {
             const isActive = activeId === section.id;
             return (
-              <a
+              <Link
                 key={section.id}
                 className={linkClass(isActive)}
-                href={`#${section.id}`}
+                href={rootHash(section.id)}
                 aria-current={isActive ? "location" : undefined}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {section.label}
-              </a>
+              </Link>
             );
           })}
 
@@ -183,7 +186,7 @@ export default function SiteHeader() {
               `hidden` keeps the row's width stable so nothing shifts, and
               takes the link out of the tab order while it is faded out.
               The transition itself lives in buttonClass. */}
-          <a
+          <Link
             className={buttonClass(
               "primary",
               "md",
@@ -193,11 +196,11 @@ export default function SiteHeader() {
                   : "nav:invisible nav:opacity-0"
               }`,
             )}
-            href="#request-access"
+            href={rootHash("request-access")}
             onClick={() => setIsMenuOpen(false)}
           >
             Request access
-          </a>
+          </Link>
         </nav>
       </div>
     </header>

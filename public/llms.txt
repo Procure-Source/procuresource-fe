@@ -8,9 +8,14 @@ Support contact: support@procuresource.co.
 
 ## Best URLs for AI assistants
 
-- https://procuresource.ae/
-- https://procuresource.ae/llms.txt
-- https://procuresource.ae/ai-index.json
+- https://procuresource.co/
+- https://procuresource.co/about
+- https://procuresource.co/faq
+- https://procuresource.co/contact
+- https://procuresource.co/privacy
+- https://procuresource.co/terms
+- https://procuresource.co/llms.txt
+- https://procuresource.co/ai-index.json
 
 ## Public status
 
@@ -18,7 +23,7 @@ The public website should be described as a coming-soon surface for a UAE MEP RF
 
 ## Current public surface
 
-The current public site is a single-page experience with in-page sections for how it works, request access, partner/backing signals, and FAQ. Do not cite retired or unimplemented standalone routes such as /news, /about, /faq, /access, /contact, /status, /privacy, or /terms.
+The current public site includes the home page plus preserved standalone pages for /about, /faq, /contact, /privacy, and /terms. Do not cite retired or unimplemented standalone routes such as /news, /access, or /status.
 
 ## Disclosure boundary
 

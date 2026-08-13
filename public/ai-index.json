@@ -1,13 +1,18 @@
 {
   "name": "ProcureSource",
-  "site_url": "https://procuresource.ae/",
-  "llms_txt": "https://procuresource.ae/llms.txt",
+  "site_url": "https://procuresource.co/",
+  "llms_txt": "https://procuresource.co/llms.txt",
   "description": "ProcureSource is a UAE-first MEP RFQ platform for contractors, consultants, and project procurement teams.",
   "publisher": "Grow Technology Services FZ LLC",
   "positioning": "Built from Dubai to the world.",
   "public_status": "Coming-soon public website for a private launch.",
   "current_public_routes": [
-    "/"
+    "/",
+    "/about",
+    "/faq",
+    "/contact",
+    "/privacy",
+    "/terms"
   ],
   "in_page_sections": [
     "#how-it-works",
@@ -19,7 +24,7 @@
     "public supplier accounts",
     "live RFQ submission workflows",
     "database-backed product behavior",
-    "standalone public routes beyond /"
+    "standalone public routes beyond /, /about, /faq, /contact, /privacy, and /terms"
   ],
   "contacts": {
     "general": "hello@procuresource.co",

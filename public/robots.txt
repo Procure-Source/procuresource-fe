@@ -1,17 +1,32 @@
 User-agent: *
 Allow: /
+Allow: /about
+Allow: /faq
+Allow: /contact
+Allow: /privacy
+Allow: /terms
 Allow: /llms.txt
 Allow: /ai-index.json
 
 User-agent: OAI-SearchBot
 Allow: /
+Allow: /about
+Allow: /faq
+Allow: /contact
+Allow: /privacy
+Allow: /terms
 Allow: /llms.txt
 Allow: /ai-index.json
 
 User-agent: GPTBot
 Allow: /
+Allow: /about
+Allow: /faq
+Allow: /contact
+Allow: /privacy
+Allow: /terms
 Allow: /llms.txt
 Allow: /ai-index.json
 
-Sitemap: https://procuresource.ae/sitemap.xml
-Host: https://procuresource.ae
+Sitemap: https://procuresource.co/sitemap.xml
+Host: https://procuresource.co
