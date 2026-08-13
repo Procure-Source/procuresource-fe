@@ -11,6 +11,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@next/third-parties": "^16.3.0",
     "framer-motion": "^12.43.0",
     "next": "16.2.12",
     "react": "19.2.8",

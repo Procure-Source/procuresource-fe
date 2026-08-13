@@ -109,7 +109,7 @@ export default function RfqFlow() {
     >
       <div
         aria-hidden="true"
-        className="flex flex-col gap-3 rounded-panel border border-rule bg-surface p-5 shadow-card @lg:flex-row @lg:items-stretch"
+        className="flex flex-col gap-3 overflow-hidden rounded-panel border border-rule bg-surface p-5 shadow-card @lg:flex-row @lg:items-stretch"
       >
         <Stage className="flex flex-col items-center justify-center gap-2.5 rounded-inner border border-rule bg-sunken px-5 py-4">
           <span className="grid size-10 flex-none place-items-center rounded-full bg-accent text-paper">
@@ -127,17 +127,37 @@ export default function RfqFlow() {
 
         {/* `group` so the mark can swell a little further than its panel. */}
         <Stage className="group flex flex-col items-center justify-center gap-2.5 rounded-inner border border-rule bg-sunken px-5 py-4">
-          <span className="relative inline-flex">
+          <span className="relative grid size-16 place-items-center overflow-hidden rounded-[18px]">
             {/* Two rings, offset by half the cycle, so the signal is leaving
-                continuously rather than in bursts. They sit outside the mark
-                and cannot swallow the pointer. */}
+                continuously rather than in bursts. The clipped frame gives the
+                animation breathing room without letting it spill into the
+                panel border. */}
             {!prefersReducedMotion && (
               <>
-                <span className="pointer-events-none absolute -inset-1 animate-ripple rounded-[16px] border border-accent" />
-                <span className="pointer-events-none absolute -inset-1 animate-ripple rounded-[16px] border border-accent [animation-delay:1.3s]" />
+                <motion.span
+                  className="pointer-events-none absolute inset-3 rounded-[14px] border border-accent"
+                  animate={{ scale: [0.94, 2.0], opacity: [0.55, 0] }}
+                  transition={{
+                    duration: 2.6,
+                    ease: [0.2, 0, 0, 1],
+                    repeat: Infinity,
+                    repeatDelay: 0,
+                  }}
+                />
+                <motion.span
+                  className="pointer-events-none absolute inset-3 rounded-[14px] border border-accent"
+                  animate={{ scale: [0.94, 2.0], opacity: [0.55, 0] }}
+                  transition={{
+                    duration: 2.6,
+                    ease: [0.2, 0, 0, 1],
+                    repeat: Infinity,
+                    repeatDelay: 0,
+                    delay: 1.3,
+                  }}
+                />
               </>
             )}
-            <LogoMark className="size-10 transition-[scale] duration-300 ease-standard group-hover:scale-110" />
+            <LogoMark className="relative z-10 size-10 transition-[scale] duration-300 ease-standard group-hover:scale-110" />
           </span>
           <p className="text-micro tracking-eyebrow text-ink-muted uppercase">
             ProcureSource
