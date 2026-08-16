@@ -102,6 +102,19 @@ function pointBetween(
   };
 }
 
+function fragmentPoint(
+  fragment: keyof typeof fragmentTransforms,
+  progress: number,
+  anchor: Point,
+) {
+  return pointBetween(
+    fragmentTransforms[fragment].from,
+    fragmentTransforms[fragment].to,
+    progress,
+    anchor,
+  );
+}
+
 function relationshipPath(from: Point, to: Point, bend = 0) {
   const midpointX = (from.x + to.x) / 2;
 
@@ -150,7 +163,7 @@ function RelationshipPath({
     progress,
   );
   const resolveProgress = 1 - smoothStep(resolveStart, resolveEnd, progress);
-  const pathOpacity = (relationship.accent ? 0.42 : 0.34) * resolveProgress;
+  const pathOpacity = (relationship.accent ? 0.42 : 0.90) * resolveProgress;
   const isActive = drawProgress > 0 && drawProgress < 1 && resolveProgress > 0;
   const activePoint = relationshipPoint(
     relationship.from,
@@ -175,7 +188,7 @@ function RelationshipPath({
         strokeDasharray="1"
         strokeDashoffset={1 - drawProgress}
         strokeLinecap="round"
-        strokeWidth={relationship.accent ? 1.15 : 1.2}
+        strokeWidth={relationship.accent ? 1.15 : 1.8}
         opacity={pathOpacity}
       />
       {isActive && (
@@ -206,89 +219,56 @@ function AnalysisLayer({
     return null;
   }
 
-  const boq = pointBetween(
-    fragmentTransforms.boqLineItem.from,
-    fragmentTransforms.boqLineItem.to,
-    fragmentProgress,
-    { x: 190, y: 46 },
-  );
-  const supplier = pointBetween(
-    fragmentTransforms.supplier.from,
-    fragmentTransforms.supplier.to,
-    fragmentProgress,
-    { x: 32, y: 31 },
-  );
-  const quotation = pointBetween(
-    fragmentTransforms.quotation.from,
-    fragmentTransforms.quotation.to,
-    fragmentProgress,
-    { x: 31, y: 35 },
-  );
-  const price = pointBetween(
-    fragmentTransforms.price.from,
-    fragmentTransforms.price.to,
-    fragmentProgress,
-    { x: 25, y: 39 },
-  );
-  const quantity = pointBetween(
-    fragmentTransforms.quantity.from,
-    fragmentTransforms.quantity.to,
-    fragmentProgress,
-    { x: 75, y: 38 },
-  );
-  const documentLineItem = pointBetween(
-    fragmentTransforms.documentLineItem.from,
-    fragmentTransforms.documentLineItem.to,
-    fragmentProgress,
-    { x: 76, y: 95 },
-  );
-  const intelligence = { x: 480, y: 310 };
+  const intelligenceTop = { x: 480, y: 238 };
+  const intelligenceRight = { x: 548, y: 310 };
+  const intelligenceBottom = { x: 480, y: 382 };
+  const intelligenceLeft = { x: 412, y: 310 };
 
   const analysisRelationships: Relationship[] = [
     {
       id: "analysis-document",
-      from: documentLineItem,
-      to: intelligence,
+      from: fragmentPoint("documentLineItem", fragmentProgress, { x: 76, y: 0 }),
+      to: intelligenceBottom,
       bend: 18,
       start: 0.14,
       end: 0.28,
     },
     {
       id: "analysis-boq",
-      from: boq,
-      to: intelligence,
+      from: fragmentPoint("boqLineItem", fragmentProgress, { x: 380, y: 46 }),
+      to: intelligenceLeft,
       bend: 20,
       start: 0.22,
       end: 0.36,
     },
     {
       id: "analysis-quantity",
-      from: quantity,
-      to: intelligence,
+      from: fragmentPoint("quantity", fragmentProgress, { x: 162, y: 34 }),
+      to: intelligenceLeft,
       bend: -24,
       start: 0.3,
       end: 0.44,
     },
     {
       id: "analysis-quotation",
-      from: quotation,
-      to: intelligence,
+      from: fragmentPoint("quotation", fragmentProgress, { x: 26, y: 70 }),
+      to: intelligenceTop,
       bend: -20,
       start: 0.38,
       end: 0.52,
     },
     {
       id: "analysis-supplier",
-      from: supplier,
-      to: intelligence,
+      from: fragmentPoint("supplier", fragmentProgress, { x: 0, y: 48 }),
+      to: intelligenceRight,
       bend: -18,
       start: 0.46,
       end: 0.6,
     },
     {
       id: "analysis-price",
-      from: price,
-      to: intelligence,
+      from: fragmentPoint("price", fragmentProgress, { x: 10, y: 38 }),
+      to: intelligenceRight,
       bend: 22,
       start: 0.52,
       end: 0.66,
@@ -324,80 +304,43 @@ function RelationshipLayer({
     return null;
   }
 
-  const boq = pointBetween(
-    fragmentTransforms.boqLineItem.from,
-    fragmentTransforms.boqLineItem.to,
-    easedProgress,
-    { x: 190, y: 46 },
-  );
-  const supplier = pointBetween(
-    fragmentTransforms.supplier.from,
-    fragmentTransforms.supplier.to,
-    easedProgress,
-    { x: 32, y: 31 },
-  );
-  const quotation = pointBetween(
-    fragmentTransforms.quotation.from,
-    fragmentTransforms.quotation.to,
-    easedProgress,
-    { x: 31, y: 35 },
-  );
-  const price = pointBetween(
-    fragmentTransforms.price.from,
-    fragmentTransforms.price.to,
-    easedProgress,
-    { x: 25, y: 39 },
-  );
-  const quantity = pointBetween(
-    fragmentTransforms.quantity.from,
-    fragmentTransforms.quantity.to,
-    easedProgress,
-    { x: 75, y: 38 },
-  );
-  const documentLineItem = pointBetween(
-    fragmentTransforms.documentLineItem.from,
-    fragmentTransforms.documentLineItem.to,
-    easedProgress,
-    { x: 76, y: 95 },
-  );
-
   const relationships: Relationship[] = [
     {
       id: "boq-to-document",
-      from: boq,
-      to: documentLineItem,
+      from: fragmentPoint("boqLineItem", easedProgress, { x: 42, y: 82 }),
+      to: fragmentPoint("documentLineItem", easedProgress, { x: 16, y: 32 }),
       bend: -22,
       start: 0.5,
       end: 0.6,
     },
     {
       id: "boq-to-quantity",
-      from: boq,
-      to: quantity,
+      from: fragmentPoint("boqLineItem", easedProgress, { x: 176, y: 88 }),
+      to: fragmentPoint("quantity", easedProgress, { x: 132, y: 18 }),
       bend: 18,
       start: 0.56,
       end: 0.66,
     },
     {
       id: "boq-to-quotation",
-      from: boq,
-      to: quotation,
+      from: fragmentPoint("boqLineItem", easedProgress, { x: 380, y: 42 }),
+      to: fragmentPoint("quotation", easedProgress, { x: 0, y: 58 }),
       bend: 26,
       start: 0.62,
       end: 0.72,
     },
     {
       id: "quotation-to-supplier",
-      from: quotation,
-      to: supplier,
+      from: fragmentPoint("quotation", easedProgress, { x: 262, y: 62 }),
+      to: fragmentPoint("supplier", easedProgress, { x: 0, y: 44 }),
       bend: -18,
       start: 0.68,
       end: 0.78,
     },
     {
       id: "quotation-to-price",
-      from: quotation,
-      to: price,
+      from: fragmentPoint("quotation", easedProgress, { x: 230, y: 138 }),
+      to: fragmentPoint("price", easedProgress, { x: 16, y: 24 }),
       bend: 22,
       start: 0.74,
       end: 0.84,
