@@ -66,12 +66,11 @@ export default function ProcurementTransformationSection() {
     const storyRect = story.getBoundingClientRect();
     const visualRect = visual.getBoundingClientRect();
     const storyTop = storyRect.top + scrollTop;
-    const storyBottom = storyTop + storyRect.height;
     const visualCenter = visualRect.top + visualRect.height / 2;
     const viewportCenter = window.innerHeight / 2;
     const centerDelta = Math.round(visualCenter - viewportCenter);
     const start = storyTop;
-    const end = Math.max(start + window.innerHeight * 2.8, storyBottom - window.innerHeight);
+    const end = start + window.innerHeight * 2.8;
     const range = end - start;
     const nextProgress = range <= 0 ? 0 : clampProgress((scrollTop - start) / range);
 
@@ -115,7 +114,7 @@ export default function ProcurementTransformationSection() {
 
       <div
         ref={storyRef}
-        className="relative mt-10 hidden min-h-[430svh] split:block"
+        className="relative mt-10 hidden min-h-[500svh] split:block"
       >
         <div className="sticky top-0 flex min-h-svh items-center px-gutter">
           <div className="mx-auto w-full max-w-page" ref={visualRef}>

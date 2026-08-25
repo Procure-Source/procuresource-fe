@@ -7,7 +7,7 @@ export default function RequestAccess() {
     /* scroll-mt keeps the heading clear of the sticky header when the CTA
        jumps here — it tracks the header's own min-height. */
     <section
-      className="py-section scroll-mt-[72px] split:scroll-mt-[88px]"
+      className="pt-strip pb-section scroll-mt-[72px] split:scroll-mt-[88px]"
       id="request-access"
       aria-labelledby="launch-heading"
     >

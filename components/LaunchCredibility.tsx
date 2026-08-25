@@ -10,7 +10,7 @@ export default function LaunchCredibility({
   children: ReactNode;
 }) {
   return (
-    <section className="py-section" aria-labelledby="private-launch-heading">
+    <section className="pt-section pb-strip" aria-labelledby="private-launch-heading">
       <div className="mx-auto w-full max-w-page px-gutter">
         <div className="border-y border-rule">
           {children}
