@@ -78,6 +78,10 @@ function interpolate(from: number, to: number, progress: number) {
   return from + (to - from) * progress;
 }
 
+function centeredScaleTransform(scale: number) {
+  return `translate(480 310) scale(${scale}) translate(-480 -310)`;
+}
+
 function transformBetween(
   from: TransformPoint,
   to: TransformPoint,
@@ -407,7 +411,7 @@ function ContextualLabelLayer({ progress }: { progress: number }) {
 
 function IntelligenceLayer({ progress }: { progress: number }) {
   const enterOpacity = smoothStep(0.05, 0.16, progress);
-  const exitOpacity = 1 - smoothStep(0.88, 0.99, progress);
+  const exitOpacity = 1 - smoothStep(0.94, 0.99, progress);
   const opacity = 0.92 * enterOpacity * exitOpacity;
   const scale = 0.86 + 0.14 * enterOpacity;
   const y = interpolate(332, 310, enterOpacity);
@@ -424,7 +428,7 @@ function IntelligenceLayer({ progress }: { progress: number }) {
 }
 
 function StructuredResolutionLayer({ progress }: { progress: number }) {
-  const recordOpacity = 0.78 * smoothStep(0.93, 0.99, progress);
+  const recordOpacity = 0.78 * smoothStep(0.92, 0.985, progress);
   const detailOpacity = 0.5 * smoothStep(0.965, 0.998, progress);
 
   if (recordOpacity <= 0) {
@@ -544,7 +548,10 @@ export default function ProcurementTransformationProgress({
     );
   }
 
-  const fragmentProgress = easeInOut(smoothStep(0.74, 0.995, normalizedProgress));
+  const fragmentProgress = easeInOut(smoothStep(0.62, 0.84, normalizedProgress));
+  const compressionProgress = smoothStep(0.84, 0.92, normalizedProgress);
+  const fragmentGroupScale = interpolate(1, 0.8, compressionProgress);
+  const fragmentGroupOpacity = 1 - smoothStep(0.94, 0.99, normalizedProgress);
 
   return (
     <svg
@@ -561,59 +568,64 @@ export default function ProcurementTransformationProgress({
       <StructuredResolutionLayer progress={normalizedProgress} />
 
       <g
-        id="fragment-boq-line-item"
-        transform={transformBetween(
-          fragmentTransforms.boqLineItem.from,
-          fragmentTransforms.boqLineItem.to,
-          fragmentProgress,
-        )}
+        id="working-fragments-layer"
+        opacity={fragmentGroupOpacity}
+        transform={centeredScaleTransform(fragmentGroupScale)}
       >
-        <path
-          d="M0 10 L330 0 L380 28 L368 92 L28 86 L0 60 Z"
-          fill="var(--color-surface)"
-          stroke="var(--color-ink)"
-          strokeWidth="1.6"
-        />
-        <path
-          d="M27 24 L318 18"
-          stroke="var(--color-rule-hover)"
-          strokeWidth="1.4"
-        />
-        <path
-          d="M29 54 L229 50"
-          stroke="var(--color-rule)"
-          strokeWidth="1.4"
-        />
-        <text
-          x="31"
-          y="43"
-          fill="var(--color-ink)"
-          fontFamily="var(--font-body)"
-          fontSize="17"
-          fontWeight="500"
+        <g
+          id="fragment-boq-line-item"
+          transform={transformBetween(
+            fragmentTransforms.boqLineItem.from,
+            fragmentTransforms.boqLineItem.to,
+            fragmentProgress,
+          )}
         >
-          AHU 20,000 CFM
-        </text>
-        <text
-          x="303"
-          y="68"
-          fill="var(--color-ink-muted)"
-          fontFamily="var(--font-body)"
-          fontSize="14"
-          textAnchor="end"
-        >
-          BOQ / M-04
-        </text>
-      </g>
+          <path
+            d="M0 10 L330 0 L380 28 L368 92 L28 86 L0 60 Z"
+            fill="var(--color-surface)"
+            stroke="var(--color-ink)"
+            strokeWidth="1.6"
+          />
+          <path
+            d="M27 24 L318 18"
+            stroke="var(--color-rule-hover)"
+            strokeWidth="1.4"
+          />
+          <path
+            d="M29 54 L229 50"
+            stroke="var(--color-rule)"
+            strokeWidth="1.4"
+          />
+          <text
+            x="31"
+            y="43"
+            fill="var(--color-ink)"
+            fontFamily="var(--font-body)"
+            fontSize="17"
+            fontWeight="500"
+          >
+            AHU 20,000 CFM
+          </text>
+          <text
+            x="303"
+            y="68"
+            fill="var(--color-ink-muted)"
+            fontFamily="var(--font-body)"
+            fontSize="14"
+            textAnchor="end"
+          >
+            BOQ / M-04
+          </text>
+        </g>
 
-      <g
-        id="fragment-supplier"
-        transform={transformBetween(
-          fragmentTransforms.supplier.from,
-          fragmentTransforms.supplier.to,
-          fragmentProgress,
-        )}
-      >
+        <g
+          id="fragment-supplier"
+          transform={transformBetween(
+            fragmentTransforms.supplier.from,
+            fragmentTransforms.supplier.to,
+            fragmentProgress,
+          )}
+        >
         <path
           d="M14 0 L184 10 L196 72 L172 94 L18 82 L0 36 Z"
           fill="var(--color-paper)"
@@ -650,16 +662,16 @@ export default function ProcurementTransformationProgress({
         >
           supplier record
         </text>
-      </g>
+        </g>
 
-      <g
-        id="fragment-document-line-item"
-        transform={transformBetween(
-          fragmentTransforms.documentLineItem.from,
-          fragmentTransforms.documentLineItem.to,
-          fragmentProgress,
-        )}
-      >
+        <g
+          id="fragment-document-line-item"
+          transform={transformBetween(
+            fragmentTransforms.documentLineItem.from,
+            fragmentTransforms.documentLineItem.to,
+            fragmentProgress,
+          )}
+        >
         <path
           d="M23 0 L142 10 L152 196 L0 184 L8 34 Z"
           fill="var(--color-sunken)"
@@ -710,16 +722,16 @@ export default function ProcurementTransformationProgress({
         >
           drawing ref.
         </text>
-      </g>
+        </g>
 
-      <g
-        id="fragment-quotation"
-        transform={transformBetween(
-          fragmentTransforms.quotation.from,
-          fragmentTransforms.quotation.to,
-          fragmentProgress,
-        )}
-      >
+        <g
+          id="fragment-quotation"
+          transform={transformBetween(
+            fragmentTransforms.quotation.from,
+            fragmentTransforms.quotation.to,
+            fragmentProgress,
+          )}
+        >
         <path
           d="M0 17 L232 0 L265 42 L248 123 L27 138 L8 94 Z"
           fill="var(--color-surface)"
@@ -761,16 +773,16 @@ export default function ProcurementTransformationProgress({
         >
           validity 14d
         </text>
-      </g>
+        </g>
 
-      <g
-        id="fragment-price"
-        transform={transformBetween(
-          fragmentTransforms.price.from,
-          fragmentTransforms.price.to,
-          fragmentProgress,
-        )}
-      >
+        <g
+          id="fragment-price"
+          transform={transformBetween(
+            fragmentTransforms.price.from,
+            fragmentTransforms.price.to,
+            fragmentProgress,
+          )}
+        >
         <path
           d="M12 0 L218 8 L204 88 L0 76 Z"
           fill="var(--color-paper)"
@@ -801,16 +813,16 @@ export default function ProcurementTransformationProgress({
         >
           unit rate pending
         </text>
-      </g>
+        </g>
 
-      <g
-        id="fragment-quantity"
-        transform={transformBetween(
-          fragmentTransforms.quantity.from,
-          fragmentTransforms.quantity.to,
-          fragmentProgress,
-        )}
-      >
+        <g
+          id="fragment-quantity"
+          transform={transformBetween(
+            fragmentTransforms.quantity.from,
+            fragmentTransforms.quantity.to,
+            fragmentProgress,
+          )}
+        >
         <path
           d="M0 18 L138 0 L162 44 L144 81 L16 72 Z"
           fill="var(--color-sunken)"
@@ -842,18 +854,19 @@ export default function ProcurementTransformationProgress({
         >
           quantity
         </text>
-      </g>
+        </g>
 
-      <AnalysisLayer
-        fragmentProgress={fragmentProgress}
-        progress={normalizedProgress}
-      />
-      <RelationshipLayer
-        fragmentProgress={fragmentProgress}
-        progress={normalizedProgress}
-      />
-      <IntelligenceLayer progress={normalizedProgress} />
-      <ContextualLabelLayer progress={normalizedProgress} />
+        <AnalysisLayer
+          fragmentProgress={fragmentProgress}
+          progress={normalizedProgress}
+        />
+        <RelationshipLayer
+          fragmentProgress={fragmentProgress}
+          progress={normalizedProgress}
+        />
+        <IntelligenceLayer progress={normalizedProgress} />
+        <ContextualLabelLayer progress={normalizedProgress} />
+      </g>
     </svg>
   );
 }
