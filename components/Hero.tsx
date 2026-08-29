@@ -1,4 +1,4 @@
-import RfqFlow from "@/components/common/RfqFlow";
+import HeroFlowPreview from "@/components/HeroFlowPreview";
 import { buttonClass } from "@/components/ui/button";
 
 export default function Hero() {
@@ -10,21 +10,28 @@ export default function Hero() {
             {/* The load-in is staggered by animation-delay, which Tailwind has
                 no utility for — hence the arbitrary property. */}
             <h1 className="max-w-none animate-rise font-display text-display font-semibold leading-display tracking-display text-balance xs:max-w-[18ch]">
-              One link to all your suppliers.
+              Structure RFQs without losing the procurement record.
             </h1>
             <p className="mt-lead max-w-[52ch] animate-rise text-lead leading-lead text-ink-muted [animation-delay:60ms]">
-              Convert your BOQ into a shareable link. Your suppliers submit
-              line-by-line quotes directly into a single comparison table.
+              ProcureSource turns BOQs, supplier RFQs, and quotations into one
+              traceable workflow for UAE MEP procurement teams.
             </p>
             <div className="mt-actions flex flex-wrap items-center gap-4 animate-rise [animation-delay:120ms] xs:gap-actions-gap">
               <a className={buttonClass("primary")} href="#request-access">
-                Request access
+                Request early access
+              </a>
+              <a className={buttonClass("quiet")} href="#how-it-works">
+                See how it works
               </a>
             </div>
+            <p className="mt-5 inline-flex items-center gap-2 text-micro tracking-eyebrow text-ink-muted uppercase animate-rise [animation-delay:160ms]">
+              <span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
+              Private launch · UAE MEP procurement
+            </p>
           </div>
 
           <div className="animate-rise [animation-delay:180ms]">
-            <RfqFlow />
+            <HeroFlowPreview />
           </div>
         </div>
       </div>

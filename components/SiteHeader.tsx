@@ -13,6 +13,7 @@ const NAV_EXPANDED = "(min-width: 641px)";
    deliberately absent — the CTA button already points there. */
 const SECTIONS = [
   { id: "how-it-works", label: "How it works" },
+  { id: "why-procuresource", label: "Why ProcureSource" },
   { id: "faq", label: "FAQ" },
 ] as const;
 
@@ -199,7 +200,7 @@ export default function SiteHeader() {
             href={rootHash("request-access")}
             onClick={() => setIsMenuOpen(false)}
           >
-            Request access
+            Request early access
           </Link>
         </nav>
       </div>

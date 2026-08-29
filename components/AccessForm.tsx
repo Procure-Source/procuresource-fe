@@ -111,7 +111,7 @@ export default function AccessForm() {
         hidden={isDone}
       >
         <h3 className="mb-6 font-display text-form-title font-semibold leading-title tracking-heading">
-          Request access
+          Request early access
         </h3>
 
         {/* Pairs share a row once the panel is wide enough. Container-based,
@@ -193,7 +193,7 @@ export default function AccessForm() {
             type="submit"
             disabled={isSending}
           >
-            {isSending ? "Sending…" : "Request access"}
+            {isSending ? "Sending…" : "Request early access"}
           </button>
         </div>
       </form>

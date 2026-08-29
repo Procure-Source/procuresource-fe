@@ -1,0 +1,91 @@
+<svg viewBox="0 0 960 620" role="img" aria-labelledby="procurement-transformation-structured-title" xmlns="http://www.w3.org/2000/svg">
+  <title id="procurement-transformation-structured-title">Structured procurement information organized into a procurement record.</title>
+  <style>
+    svg {
+      --color-paper: #FAFAF8;
+      --color-surface: #FFFFFF;
+      --color-ink: #191C1E;
+      --color-ink-muted: #61686D;
+      --color-rule: #E5E5E1;
+      --color-rule-hover: #C9CBC7;
+      --color-accent: #0C4F45;
+      --color-sunken: #F2F2EE;
+      background: var(--color-paper);
+    }
+
+    text {
+      font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+
+    .display {
+      font-family: Newsreader, Georgia, "Times New Roman", serif;
+    }
+  </style>
+
+  <g id="structured-procurement-record" transform="translate(100 78)">
+    <path d="M0 0 L760 0 L760 464 L0 464 Z" fill="none" stroke="var(--color-rule)" stroke-width="1.4"/>
+    <path d="M0 70 L760 70" stroke="var(--color-ink)" stroke-width="1.5"/>
+    <path d="M0 174 L760 174" stroke="var(--color-rule)" stroke-width="1.3"/>
+    <path d="M0 278 L760 278" stroke="var(--color-rule)" stroke-width="1.3"/>
+    <path d="M0 382 L760 382" stroke="var(--color-rule)" stroke-width="1.3"/>
+
+    <g id="fragment-document-line-item" transform="translate(28 25)">
+      <path d="M0 0 L112 0 L112 22 L0 22 Z" fill="var(--color-sunken)" stroke="var(--color-ink)" stroke-width="1.3"/>
+      <text x="13" y="16" fill="var(--color-ink)" font-size="12" font-weight="500">BOQ / M-04</text>
+    </g>
+
+    <g id="fragment-quotation" transform="translate(292 25)">
+      <path d="M0 0 L104 0 L104 22 L0 22 Z" fill="var(--color-surface)" stroke="var(--color-rule-hover)" stroke-width="1.3"/>
+      <text x="13" y="16" fill="var(--color-ink-muted)" font-size="12">QTN-1837</text>
+    </g>
+
+    <g id="fragment-supplier" transform="translate(512 25)">
+      <circle cx="8" cy="11" r="5.5" fill="var(--color-accent)"/>
+      <path d="M26 11 L158 11" stroke="var(--color-rule-hover)" stroke-width="1.4"/>
+      <text x="26" y="8" fill="var(--color-ink)" font-size="13" font-weight="500">Gulf Ductwork</text>
+    </g>
+
+    <g id="fragment-boq-line-item" transform="translate(28 104)">
+      <path d="M0 0 L704 0 L704 48 L0 48 Z" fill="var(--color-surface)" stroke="var(--color-ink)" stroke-width="1.4"/>
+      <path d="M252 0 L252 48" stroke="var(--color-rule)" stroke-width="1.2"/>
+      <path d="M380 0 L380 48" stroke="var(--color-rule)" stroke-width="1.2"/>
+      <path d="M546 0 L546 48" stroke="var(--color-rule)" stroke-width="1.2"/>
+      <text x="20" y="30" fill="var(--color-ink)" font-size="17" font-weight="500">AHU 20,000 CFM</text>
+      <text x="286" y="30" fill="var(--color-ink-muted)" font-size="14">4 units</text>
+      <text x="411" y="30" fill="var(--color-ink-muted)" font-size="14">Spec line</text>
+      <text class="display" x="680" y="30" fill="var(--color-accent)" font-size="19" font-weight="600" text-anchor="end">AED 42,000</text>
+    </g>
+
+    <g id="structured-line-item-cable-tray" transform="translate(28 208)">
+      <path d="M0 0 L704 0 L704 48 L0 48 Z" fill="var(--color-paper)" stroke="var(--color-rule-hover)" stroke-width="1.4"/>
+      <path d="M252 0 L252 48" stroke="var(--color-rule)" stroke-width="1.2"/>
+      <path d="M380 0 L380 48" stroke="var(--color-rule)" stroke-width="1.2"/>
+      <path d="M546 0 L546 48" stroke="var(--color-rule)" stroke-width="1.2"/>
+      <text x="20" y="30" fill="var(--color-ink)" font-size="17" font-weight="500">Cable Tray 300mm</text>
+      <text x="286" y="30" fill="var(--color-ink-muted)" font-size="14">120 m</text>
+      <text x="411" y="30" fill="var(--color-ink-muted)" font-size="14">drawing ref.</text>
+      <text class="display" x="680" y="30" fill="var(--color-accent)" font-size="19" font-weight="600" text-anchor="end">AED 18,400</text>
+    </g>
+
+    <g id="structured-line-item-copper-pipe" transform="translate(28 312)">
+      <path d="M0 0 L704 0 L704 48 L0 48 Z" fill="var(--color-sunken)" stroke="var(--color-rule-hover)" stroke-width="1.4"/>
+      <path d="M252 0 L252 48" stroke="var(--color-rule)" stroke-width="1.2"/>
+      <path d="M380 0 L380 48" stroke="var(--color-rule)" stroke-width="1.2"/>
+      <path d="M546 0 L546 48" stroke="var(--color-rule)" stroke-width="1.2"/>
+      <text x="20" y="30" fill="var(--color-ink)" font-size="17" font-weight="500">Copper Pipe 50mm</text>
+      <text x="286" y="30" fill="var(--color-ink-muted)" font-size="14">240 m</text>
+      <text x="411" y="30" fill="var(--color-ink-muted)" font-size="14">BOQ / M-04</text>
+      <text class="display" x="680" y="30" fill="var(--color-accent)" font-size="19" font-weight="600" text-anchor="end">AED 23,100</text>
+    </g>
+
+    <g id="fragment-quantity" transform="translate(280 407)">
+      <path d="M0 0 L102 0" stroke="var(--color-ink)" stroke-width="1.3"/>
+      <text x="0" y="25" fill="var(--color-ink-muted)" font-size="12">quantities aligned</text>
+    </g>
+
+    <g id="fragment-price" transform="translate(574 407)">
+      <path d="M0 0 L130 0" stroke="var(--color-accent)" stroke-width="1.5"/>
+      <text x="130" y="25" fill="var(--color-accent)" font-size="12" text-anchor="end">quoted values mapped</text>
+    </g>
+  </g>
+</svg>

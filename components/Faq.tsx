@@ -28,7 +28,7 @@ export default function Faq() {
   };
 
   return (
-    <section className="py-section" id="faq" aria-labelledby="faq-heading">
+    <section className="py-strip" id="faq" aria-labelledby="faq-heading">
       <div className="mx-auto w-full max-w-page px-gutter">
         <FadeIn>
           <SectionHeading id="faq-heading">
