@@ -13,14 +13,14 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <LaunchCredibility>
+        <BackedBy />
+      </LaunchCredibility>
       <ProcurementTransformationSection />
       <Problem />
       <HowItWorks />
       <WhyProcureSource />
       <UaeMep />
-      <LaunchCredibility>
-        <BackedBy />
-      </LaunchCredibility>
       <Faq />
       <RequestAccess />
     </>

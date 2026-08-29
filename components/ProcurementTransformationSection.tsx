@@ -17,6 +17,9 @@ const mobileStages = [
   { label: "Structured", progress: 1 },
 ] as const;
 
+const scrollSpeedMultiplier = 1.5;
+const activeScrollViewports = 2.8 / scrollSpeedMultiplier;
+
 function clampProgress(progress: number) {
   return Math.min(1, Math.max(0, progress));
 }
@@ -70,7 +73,7 @@ export default function ProcurementTransformationSection() {
     const viewportCenter = window.innerHeight / 2;
     const centerDelta = Math.round(visualCenter - viewportCenter);
     const start = storyTop;
-    const end = start + window.innerHeight * 2.8;
+    const end = start + window.innerHeight * activeScrollViewports;
     const range = end - start;
     const nextProgress = range <= 0 ? 0 : clampProgress((scrollTop - start) / range);
 
@@ -105,7 +108,7 @@ export default function ProcurementTransformationSection() {
 
   return (
     <section
-      className="bg-paper py-section split:pb-0"
+      className="bg-paper py-strip split:pb-0"
       aria-labelledby="procurement-transformation-heading"
     >
       <div className="mx-auto w-full max-w-page px-gutter">
@@ -114,7 +117,7 @@ export default function ProcurementTransformationSection() {
 
       <div
         ref={storyRef}
-        className="relative mt-10 hidden min-h-[500svh] split:block"
+        className="relative mt-10 hidden min-h-[333svh] split:block"
       >
         <div className="sticky top-0 flex min-h-svh items-center px-gutter">
           <div className="mx-auto w-full max-w-page" ref={visualRef}>

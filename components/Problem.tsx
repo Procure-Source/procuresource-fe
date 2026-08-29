@@ -11,7 +11,7 @@ const fragments = [
 
 export default function Problem() {
   return (
-    <section className="py-section" aria-labelledby="problem-heading">
+    <section className="py-strip" aria-labelledby="problem-heading">
       <div className="mx-auto grid w-full max-w-page grid-cols-1 items-center gap-launch-gap px-gutter split:grid-cols-[0.88fr_1.12fr]">
         <FadeIn>
           <div>

@@ -32,7 +32,7 @@ const plexSans = IBM_Plex_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "ProcureSource — RFQ software for UAE MEP procurement managers",
+    default: "ProcureSource",
     template: "%s | ProcureSource",
   },
   description: siteConfig.description,

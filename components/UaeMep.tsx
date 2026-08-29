@@ -23,7 +23,7 @@ const procurementRealities = [
 export default function UaeMep() {
   return (
     <section
-      className="border-y border-rule bg-sunken py-section"
+      className="border-y border-rule bg-sunken py-strip"
       id="uae-mep"
       aria-labelledby="uae-mep-heading"
     >

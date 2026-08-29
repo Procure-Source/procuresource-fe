@@ -294,7 +294,7 @@ export default function HowItWorks() {
 
   return (
     <section
-      className="border-y border-rule bg-sunken py-section"
+      className="border-y border-rule bg-sunken py-strip"
       id="how-it-works"
       aria-labelledby="how-it-works-heading"
     >

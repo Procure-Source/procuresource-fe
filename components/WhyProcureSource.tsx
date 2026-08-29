@@ -22,7 +22,7 @@ const values = [
 export default function WhyProcureSource() {
   return (
     <section
-      className="py-section"
+      className="py-strip"
       id="why-procuresource"
       aria-labelledby="why-procuresource-heading"
     >
