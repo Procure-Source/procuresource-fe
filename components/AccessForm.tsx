@@ -11,10 +11,10 @@ import {
   type FormValues,
 } from "@/lib/validation";
 
-/* Set NEXT_PUBLIC_FORM_ENDPOINT to the request-access endpoint once one exists.
-   While it is empty, submit validates, logs the payload to the console, and
-   shows the success state without sending anything anywhere. */
-const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT ?? "";
+/* The endpoint is public; keep the environment variable as an override for
+  staging or a future provider change. */
+const FORM_ENDPOINT =
+  process.env.NEXT_PUBLIC_FORM_ENDPOINT ?? "https://formspree.io/f/mwlvbboz";
 
 type Errors = Partial<Record<FieldName, string>>;
 
