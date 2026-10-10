@@ -40,18 +40,17 @@ Styling is one plain stylesheet, not CSS Modules or Tailwind. Tokens live in
 
 ## The request-access form
 
-Validation runs client-side, and submission posts JSON to
-`NEXT_PUBLIC_FORM_ENDPOINT`:
+Validation runs client-side, and submission posts JSON to Formspree. The
+production endpoint is configured as the default; set
+`NEXT_PUBLIC_FORM_ENDPOINT` to override it for another environment:
 
 ```bash
 # .env.local
 NEXT_PUBLIC_FORM_ENDPOINT=https://…
 ```
 
-While that variable is unset the form still validates and shows its success
-state, but only logs the payload to the console — nothing is sent anywhere. Wire
-up an endpoint (or a Route Handler at `app/api/request-access/route.ts`) before
-launch.
+Submissions are sent to Formspree and appear in its dashboard. Configure
+notifications in Formspree to receive email alerts.
 
 ## Still to do
 
