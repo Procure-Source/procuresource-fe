@@ -12,8 +12,9 @@ import {
   type OnboardingType,
 } from "@/lib/onboarding";
 
-const FORM_ENDPOINT =
-  process.env.NEXT_PUBLIC_FORM_ENDPOINT ?? "https://formspree.io/f/mwlvbboz";
+/* Its own Formspree form, separate from the website's request-access form, and
+   deliberately not overridable by NEXT_PUBLIC_FORM_ENDPOINT (which that form uses). */
+const FORM_ENDPOINT = "https://formspree.io/f/xljbakyr";
 
 type Errors = Partial<Record<OnboardingField, string>>;
 
@@ -119,10 +120,11 @@ export default function OnboardingForm({ type }: { type: OnboardingType }) {
               {(() => {
                 const shared = {
                   className:
-                    "block min-h-14 w-full rounded-inner border border-rule bg-paper px-4 py-3.5 text-body transition-[border-color,box-shadow] duration-200 ease-standard hover:border-rule-hover focus:border-accent focus:shadow-focus focus:outline-none aria-[invalid=true]:border-error",
+                    "block min-h-14 w-full rounded-inner placeholder:text-placeholder border border-rule bg-paper px-4 py-3.5 text-body transition-[border-color,box-shadow] duration-200 ease-standard hover:border-rule-hover focus:border-accent focus:shadow-focus focus:outline-none aria-[invalid=true]:border-error",
                   id: field.name,
                   name: field.name,
                   autoComplete: field.autoComplete,
+                  placeholder: field.placeholder,
                   required: field.required,
                   "aria-describedby": `${field.name}-error`,
                   "aria-invalid": message ? (true as const) : undefined,
