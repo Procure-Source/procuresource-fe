@@ -12,7 +12,7 @@ export default function SupplierOnboardingPage() {
           suppliers and share BOQs. We are now onboarding suppliers to the
           marketplace.
         </p>
-        <OnboardingForm type="supplier" />
+        <OnboardingForm />
       </div>
     </section>
   );

@@ -1,7 +1,5 @@
 /* Expo onboarding form: field definitions, validators and the source tag. */
 
-export type OnboardingType = "supplier";
-
 export type OnboardingField =
   | "full_name"
   | "company_name"
@@ -17,6 +15,7 @@ export interface OnboardingFieldDef {
   type: string;
   autoComplete: string;
   inputMode?: "tel" | "email";
+  placeholder?: string;
   required: boolean;
 }
 
@@ -35,6 +34,7 @@ export const onboardingFields: OnboardingFieldDef[] = [
     type: "tel",
     autoComplete: "tel",
     inputMode: "tel",
+    placeholder: "+971 50 123 4567",
     required: true,
   },
   {
@@ -70,13 +70,10 @@ export const onboardingFields: OnboardingFieldDef[] = [
 
 export type OnboardingValues = Record<OnboardingField, string>;
 
-/* Mobile starts at the UAE code; people can overwrite it for another country. */
-export const DEFAULT_COUNTRY_CODE = "+971 ";
-
 export const emptyOnboardingValues: OnboardingValues = {
   full_name: "",
   company_name: "",
-  mobile: DEFAULT_COUNTRY_CODE,
+  mobile: "",
   email: "",
   designation: "",
   region: "",

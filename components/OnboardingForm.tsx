@@ -9,15 +9,11 @@ import {
   onboardingFields,
   onboardingValidators,
   type OnboardingField,
-  type OnboardingType,
 } from "@/lib/onboarding";
-
-const FORM_ENDPOINT =
-  process.env.NEXT_PUBLIC_FORM_ENDPOINT ?? "https://formspree.io/f/mwlvbboz";
 
 type Errors = Partial<Record<OnboardingField, string>>;
 
-export default function OnboardingForm({ type }: { type: OnboardingType }) {
+export default function OnboardingForm() {
   const [values, setValues] = useState(emptyOnboardingValues);
   const [errors, setErrors] = useState<Errors>({});
   const [formError, setFormError] = useState("");
@@ -65,16 +61,13 @@ export default function OnboardingForm({ type }: { type: OnboardingType }) {
       designation: values.designation.trim(),
       region: values.region.trim(),
       notes: values.notes.trim(),
-      type,
       source: cleanSource(new URLSearchParams(window.location.search).get("source")),
-      created_at: new Date().toISOString(),
-      _subject: `Onboarding: ${type}`,
     };
 
     try {
-      const response = await fetch(FORM_ENDPOINT, {
+      const response = await fetch("/api/onboarding", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
       if (!response.ok) throw new Error("status " + response.status);
@@ -119,10 +112,11 @@ export default function OnboardingForm({ type }: { type: OnboardingType }) {
               {(() => {
                 const shared = {
                   className:
-                    "block min-h-14 w-full rounded-inner border border-rule bg-paper px-4 py-3.5 text-body transition-[border-color,box-shadow] duration-200 ease-standard hover:border-rule-hover focus:border-accent focus:shadow-focus focus:outline-none aria-[invalid=true]:border-error",
+                    "block min-h-14 w-full rounded-inner placeholder:text-placeholder border border-rule bg-paper px-4 py-3.5 text-body transition-[border-color,box-shadow] duration-200 ease-standard hover:border-rule-hover focus:border-accent focus:shadow-focus focus:outline-none aria-[invalid=true]:border-error",
                   id: field.name,
                   name: field.name,
                   autoComplete: field.autoComplete,
+                  placeholder: field.placeholder,
                   required: field.required,
                   "aria-describedby": `${field.name}-error`,
                   "aria-invalid": message ? (true as const) : undefined,
